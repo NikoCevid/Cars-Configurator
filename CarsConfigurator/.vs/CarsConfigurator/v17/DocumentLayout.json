@@ -7,36 +7,44 @@
       "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\dto\\createuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\dto\\createuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\dto\\userlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\dto\\userlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\security\\passwordhashprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\security\\passwordhashprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\security\\passwordhashprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\security\\passwordhashprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\models\\logentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\models\\logentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\services\\logservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\services\\logservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\security\\jwttokenprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\security\\jwttokenprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\dto\\changepassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\dto\\changepassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\wwwroot\\html\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\wwwroot\\html\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\wwwroot\\html\\logs.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\wwwroot\\html\\logs.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,72 +54,83 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserLoginDTO.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\DTO\\UserLoginDTO.cs",
-              "RelativeDocumentMoniker": "Cars\\DTO\\UserLoginDTO.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\DTO\\UserLoginDTO.cs",
-              "RelativeToolTip": "Cars\\DTO\\UserLoginDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T23:59:00.852Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CreateUserDTO.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\DTO\\CreateUserDTO.cs",
-              "RelativeDocumentMoniker": "Cars\\DTO\\CreateUserDTO.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\DTO\\CreateUserDTO.cs",
-              "RelativeToolTip": "Cars\\DTO\\CreateUserDTO.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAxwBoAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T23:30:10.322Z",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\appsettings.json",
+              "RelativeDocumentMoniker": "Cars\\appsettings.json",
+              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\appsettings.json",
+              "RelativeToolTip": "Cars\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-20T20:28:01.706Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "PasswordHashProvider.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Security\\PasswordHashProvider.cs",
-              "RelativeDocumentMoniker": "Cars\\Security\\PasswordHashProvider.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Security\\PasswordHashProvider.cs",
-              "RelativeToolTip": "Cars\\Security\\PasswordHashProvider.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwA4AAAAAAAAAAAAAAA==",
+              "Title": "LogService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Services\\LogService.cs",
+              "RelativeDocumentMoniker": "Cars\\Services\\LogService.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Services\\LogService.cs",
+              "RelativeToolTip": "Cars\\Services\\LogService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T23:24:24.766Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserDTO.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\DTO\\UserDTO.cs",
-              "RelativeDocumentMoniker": "Cars\\DTO\\UserDTO.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\DTO\\UserDTO.cs",
-              "RelativeToolTip": "Cars\\DTO\\UserDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T23:21:30.645Z",
+              "WhenOpened": "2025-05-20T20:21:59.415Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Cars\\Models\\User.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Models\\User.cs",
-              "RelativeToolTip": "Cars\\Models\\User.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwA8AAAAaAAAAAAAAAA==",
+              "Title": "JwtTokenProvider.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Security\\JwtTokenProvider.cs",
+              "RelativeDocumentMoniker": "Cars\\Security\\JwtTokenProvider.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Security\\JwtTokenProvider.cs",
+              "RelativeToolTip": "Cars\\Security\\JwtTokenProvider.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAcwB0AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T23:06:12.948Z",
+              "WhenOpened": "2025-05-20T20:18:43.118Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PasswordHashProvider.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Security\\PasswordHashProvider.cs",
+              "RelativeDocumentMoniker": "Cars\\Security\\PasswordHashProvider.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Security\\PasswordHashProvider.cs",
+              "RelativeToolTip": "Cars\\Security\\PasswordHashProvider.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAUwCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T20:18:30.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Cars\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Cars\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-20T16:11:22.954Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "logs.html",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\wwwroot\\html\\logs.html",
+              "RelativeDocumentMoniker": "Cars\\wwwroot\\html\\logs.html",
+              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\wwwroot\\html\\logs.html",
+              "RelativeToolTip": "Cars\\wwwroot\\html\\logs.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-05-20T16:08:23.947Z"
             },
             {
               "$type": "Document",
@@ -121,49 +140,61 @@
               "RelativeDocumentMoniker": "Cars\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Controllers\\UserController.cs",
               "RelativeToolTip": "Cars\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAJgAAAAAAAAAAAAgwPAAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAmwLUAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T17:09:28.652Z",
+              "WhenOpened": "2025-05-20T16:47:08.356Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "JwtTokenProvider.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Security\\JwtTokenProvider.cs",
-              "RelativeDocumentMoniker": "Cars\\Security\\JwtTokenProvider.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Security\\JwtTokenProvider.cs",
-              "RelativeToolTip": "Cars\\Security\\JwtTokenProvider.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAkAAABZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T17:06:56.858Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\appsettings.json",
-              "RelativeDocumentMoniker": "Cars\\appsettings.json",
-              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\appsettings.json",
-              "RelativeToolTip": "Cars\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-08T15:11:29.676Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Program.cs",
               "RelativeDocumentMoniker": "Cars\\Program.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Program.cs",
               "RelativeToolTip": "Cars\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAmwFUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-08T15:11:22.953Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LogEntry.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Models\\LogEntry.cs",
+              "RelativeDocumentMoniker": "Cars\\Models\\LogEntry.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Models\\LogEntry.cs",
+              "RelativeToolTip": "Cars\\Models\\LogEntry.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T20:22:29.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ChangePasswordDTO.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\DTO\\ChangePasswordDTO.cs",
+              "RelativeDocumentMoniker": "Cars\\DTO\\ChangePasswordDTO.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\DTO\\ChangePasswordDTO.cs",
+              "RelativeToolTip": "Cars\\DTO\\ChangePasswordDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T20:10:59.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "login.html",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\wwwroot\\html\\login.html",
+              "RelativeDocumentMoniker": "Cars\\wwwroot\\html\\login.html",
+              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\wwwroot\\html\\login.html",
+              "RelativeToolTip": "Cars\\wwwroot\\html\\login.html",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-05-20T16:08:07.953Z"
             }
           ]
         }

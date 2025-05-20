@@ -28,5 +28,19 @@ namespace Cars.Security
 
             return b64Hash;
         }
+
+        public static bool VerifyPassword(string inputPassword, string storedHash, string storedSalt)
+        {
+            var inputHash = GetHash(inputPassword, storedSalt);
+            return inputHash == storedHash;
+        }
+
+        public static (string Hash, string Salt) HashPassword(string password)
+        {
+            var salt = GetSalt();
+            var hash = GetHash(password, salt);
+            return (hash, salt);
+        }
+
     }
 }

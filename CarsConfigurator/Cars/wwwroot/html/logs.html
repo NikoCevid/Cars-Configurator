@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Logovi</title>
+</head>
+<body>
+    <h2>Logovi</h2>
+    <select id="countSelect">
+        <option value="10">Zadnjih 10</option>
+        <option value="25">Zadnjih 25</option>
+        <option value="50">Zadnjih 50</option>
+    </select>
+    <button onclick="logout()">Odjava</button>
+    <ul id="logList"></ul>
+
+    <script>
+    const token = localStorage.getItem("token");
+    if (!token) window.location.href = "/html/login.html";
+
+    document.getElementById("countSelect").addEventListener("change", loadLogs);
+
+    function logout() {
+      localStorage.removeItem("token");
+      window.location.href = "/html/login.html";
+    }
+
+    async function loadLogs() {
+      const count = document.getElementById("countSelect").value;
+      const res = await fetch(`/api/logs/get/${count}`, {
+        headers: { Authorization: "Bearer " + token }
+      });
+
+      if (res.ok) {
+        const logs = await res.json();
+        const list = document.getElementById("logList");
+        list.innerHTML = "";
+        logs.forEach(log => {
+          const item = document.createElement("li");
+          item.textContent = `${log.timestamp} | ${log.level}: ${log.message}`;
+          list.appendChild(item);
+        });
+      } else if (res.status === 401) {
+        alert("Pristup odbijen. Prijavi se ponovno.");
+        logout();
+      }
+    }
+
+    loadLogs(); // init on load
+    </script>
+</body>
+</html>

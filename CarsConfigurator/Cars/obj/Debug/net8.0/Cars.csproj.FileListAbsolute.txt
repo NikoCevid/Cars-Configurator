@@ -280,3 +280,5 @@ C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars\obj\Debug\net8.0\ref\Car
 C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
 C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars\obj\Debug\net8.0\Cars.sourcelink.json
+C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars\bin\Debug\net8.0\Cars.staticwebassets.runtime.json

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Prijava</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 30px 40px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Prijava</h2>
+        <form id="loginForm">
+            <label for="username">Korisničko ime:</label>
+            <input type="text" id="username" required>
+
+            <label for="password">Lozinka:</label>
+            <input type="password" id="password" required>
+
+            <button type="submit">Prijavi se</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const res = await fetch("/api/User/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    username: document.getElementById("username").value,
+                    password: document.getElementById("password").value
+                })
+            });
+
+            if (res.ok) {
+                const data = await res.json();
+                localStorage.setItem("token", data.token);
+                window.location.href = "/html/logs.html";
+            } else {
+                alert("Neispravni podaci za prijavu.");
+            }
+        });
+    </script>
+</body>
+</html>

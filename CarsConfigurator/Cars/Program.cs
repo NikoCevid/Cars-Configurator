@@ -1,10 +1,13 @@
 using Cars.Models;
+using Cars.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Text.Json.Serialization;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -74,6 +77,7 @@ builder.Services.AddSwaggerGen(option =>
         });
 });
 
+builder.Services.AddSingleton<LogService>();
 
 var app = builder.Build();
 
@@ -88,5 +92,9 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseDefaultFiles(); // omoguæuje uèitavanje npr. /html/login.html
+app.UseStaticFiles();  // omoguæuje èitanje iz wwwroot/
+
 
 app.Run();

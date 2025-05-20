@@ -5,6 +5,9 @@ using Cars.DTO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Cars.Security;
+using Cars.Services;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Cars.Controllers
 {
@@ -14,14 +17,15 @@ namespace Cars.Controllers
     {
         private readonly IConfiguration _configuration;
         private readonly CarsContext _context;
+        private readonly LogService _logService;
 
-        public UserController(IConfiguration configuration, CarsContext context)
+        public UserController(IConfiguration configuration, CarsContext context, LogService logService)
         {
             _configuration = configuration;
             _context = context;
+            _logService = logService;
         }
 
-        // GET: api/User
         [HttpGet]
         public ActionResult<IEnumerable<UserDTO>> GetAll()
         {
@@ -45,7 +49,6 @@ namespace Cars.Controllers
             }
         }
 
-        // GET: api/User/{id}
         [HttpGet("{id}")]
         public ActionResult<UserDTO> GetBy(int id)
         {
@@ -73,7 +76,6 @@ namespace Cars.Controllers
             }
         }
 
-        // POST: api/User
         [HttpPost]
         public IActionResult Post([FromBody] CreateUserDTO model)
         {
@@ -99,7 +101,6 @@ namespace Cars.Controllers
             }
         }
 
-        // PUT: api/User/{id}
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] CreateUserDTO model)
         {
@@ -123,7 +124,6 @@ namespace Cars.Controllers
             }
         }
 
-        // DELETE: api/User/{id}
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
@@ -143,13 +143,16 @@ namespace Cars.Controllers
             }
         }
 
-        // GET: api/User/GetToken
         [HttpGet("[action]")]
         public ActionResult GetToken()
         {
             try
             {
                 var secureKey = _configuration["Jwt:SecureKey"];
+
+                if (string.IsNullOrWhiteSpace(secureKey))
+                    return BadRequest("JWT ključ nije definiran."); 
+
                 var serializedToken = JwtTokenProvider.CreateToken(secureKey, 10);
                 return Ok(serializedToken);
             }
@@ -159,22 +162,18 @@ namespace Cars.Controllers
             }
         }
 
-        // POST: api/User/Register
+
         [HttpPost("Register")]
         public ActionResult<CreateUserDTO> Register([FromBody] CreateUserDTO CreateUserDTO)
         {
-
-            if(ModelState.IsValid == false)
-            {
-                return BadRequest(ModelState); 
-            }
-
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
             try
             {
                 var username = CreateUserDTO.Username.Trim();
 
-                if (_context.Users.Any(x => x.Username == username) == true)
+                if (_context.Users.Any(x => x.Username == username))
                     return BadRequest("Username already taken.");
 
                 var salt = PasswordHashProvider.GetSalt();
@@ -195,44 +194,37 @@ namespace Cars.Controllers
                 _context.Users.Add(user);
                 _context.SaveChanges();
 
-                // Update DTO Id to return it to the client
                 CreateUserDTO.Id = user.Id;
-
                 return Ok(CreateUserDTO);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                return StatusCode(500);
+                return StatusCode(500, ex.Message);
             }
+
         }
 
         [HttpPost("login")]
-
         public ActionResult Login([FromBody] UserLoginDTO UserLoginDTO)
         {
             try
             {
                 var genericErrorMessage = "Incorrect username or password";
 
-                if (ModelState.IsValid == false) return BadRequest(ModelState);
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
 
                 var username = UserLoginDTO.Username.Trim();
-
                 var user = _context.Users.FirstOrDefault(u => u.Username == username);
 
                 if (user is null)
-                {
                     return BadRequest(genericErrorMessage);
-                }
 
                 var targetHash = PasswordHashProvider.GetHash(UserLoginDTO.Password, user.PwdSalt);
                 var sourceHash = user.PwdHash;
 
                 if (targetHash != sourceHash)
-                {
                     return BadRequest(genericErrorMessage);
-                }
 
                 var SecureKey = _configuration["Jwt:SecureKey"];
                 var token = JwtTokenProvider.CreateToken(SecureKey, 10);
@@ -240,10 +232,45 @@ namespace Cars.Controllers
             }
             catch (Exception)
             {
-
-                return StatusCode(500); 
+                return StatusCode(500);
             }
         }
 
+        [Authorize]
+        [HttpPut("changepassword")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDTO model)
+        {
+            try
+            {
+                var username = User.FindFirstValue(ClaimTypes.Name);
+                if (username == null)
+                    return Unauthorized();
+
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+                if (user == null)
+                    return NotFound("Korisnik nije pronađen.");
+
+                var isValid = PasswordHashProvider.VerifyPassword(model.CurrentPassword, user.PwdHash, user.PwdSalt);
+                if (!isValid)
+                {
+                    _logService.Log("WARN", $"Pogrešan pokušaj promjene lozinke za korisnika '{username}'.");
+                    return BadRequest("Trenutna lozinka nije ispravna.");
+                }
+
+                var (newHash, newSalt) = PasswordHashProvider.HashPassword(model.NewPassword);
+                user.PwdHash = newHash;
+                user.PwdSalt = newSalt;
+
+                await _context.SaveChangesAsync();
+
+                _logService.Log("INFO", $"Korisnik '{username}' je uspješno promijenio lozinku.");
+                return Ok("Lozinka je uspješno promijenjena.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, "Došlo je do greške na serveru.");
+            }
+        }
     }
 }

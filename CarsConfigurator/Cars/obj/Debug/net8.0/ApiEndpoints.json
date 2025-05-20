@@ -496,6 +496,22 @@
   },
   {
     "ContainingType": "Cars.Controllers.UserController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/user/changepassword",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Cars.DTO.ChangePasswordDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Cars.Controllers.UserController",
     "Method": "GetToken",
     "RelativePath": "api/user/GetToken",
     "HttpMethod": "GET",
