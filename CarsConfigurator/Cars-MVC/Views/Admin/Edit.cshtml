@@ -1,0 +1,147 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .form-container {
+        padding: 40px;
+    }
+
+    .form-grid {
+        display: flex;
+        gap: 40px;
+    }
+
+    .form-left, .form-right {
+        flex: 1;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+    .buttons {
+        margin-top: 30px;
+        display: flex;
+        gap: 10px;
+    }
+
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+            .buttons button.cancel {
+                background-color: #6c757d;
+            }
+
+            .buttons button.delete {
+                background-color: #dc3545;
+            }
+
+            .buttons button:hover {
+                opacity: 0.9;
+            }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-top: 1px solid #ccc;
+        margin-top: 40px;
+    }
+</style>
+
+<div class="form-container">
+    <h2>Edit Item</h2>
+
+    <form method="post">
+        <div class="form-grid">
+            <div class="form-left">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input id="name" name="name" />
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category">
+                        <option>Cat 123</option>
+                        <option>Cat 456</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input id="price" name="price" />
+                </div>
+
+                <div class="form-group">
+                    <label for="stock">Stock:</label>
+                    <input id="stock" name="stock" />
+                </div>
+
+                <div class="form-group">
+                    <label for="condition">Condition:</label>
+                    <select id="condition" name="condition">
+                        <option>New</option>
+                        <option>Used</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-right">
+                <h4>Specifications:</h4>
+
+                <div class="form-group">
+                    <label for="spec1">Spec 1:</label>
+                    <input id="spec1" name="spec1" />
+                </div>
+
+                <div class="form-group">
+                    <label for="spec2">Spec 2:</label>
+                    <select id="spec2" name="spec2">
+                        <option>Selection A</option>
+                        <option>Selection B</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="spec3">Spec 3:</label>
+                    <input id="spec3" name="spec3" />
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button type="submit">Save</button>
+            <button type="button" class="cancel">Cancel</button>
+            <button type="button" class="delete">🗑️</button>
+        </div>
+    </form>
+</div>
+
+<footer>
+    <p>Footer text etc...</p>
+</footer>

@@ -1,5 +1,6 @@
 ﻿using Cars.DTO;
 using Cars.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

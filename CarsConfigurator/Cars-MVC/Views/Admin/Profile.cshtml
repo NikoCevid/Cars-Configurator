@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .profile-container {
+        max-width: 600px;
+        margin: 40px auto;
+        border: 1px solid #ccc;
+        padding: 30px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        background-color: #fff;
+    }
+
+    .profile-header {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+        .profile-header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+
+    .profile-info {
+        flex: 1;
+    }
+
+        .profile-info p {
+            margin: 5px 0;
+        }
+
+    .edit-button {
+        margin-top: 20px;
+        padding: 8px 15px;
+        background-color: #007bff;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+
+        .edit-button:hover {
+            background-color: #0056b3;
+        }
+</style>
+
+<div class="profile-container">
+    <div class="profile-header">
+        <img src="#" alt="Profile picture" />
+        <div class="profile-info">
+            <p><strong>Name:</strong> Ivan Horvatiček</p>
+            <p><strong>Email:</strong> ivan@example.com</p>
+            <p><strong>Password:</strong> ••••••••••</p>
+        </div>
+    </div>
+
+    <button class="edit-button">Edit Profile</button>
+</div>

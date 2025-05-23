@@ -1,0 +1,82 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .search-bar {
+        display: flex;
+        gap: 10px;
+        margin: 20px 0;
+        justify-content: center;
+    }
+
+        .search-bar input,
+        .search-bar select,
+        .search-bar button {
+            padding: 8px;
+            font-size: 14px;
+        }
+
+    .items-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .item-card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+    }
+
+        .item-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+    .pagination {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px 30px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-top: 1px solid #ccc;
+    }
+</style>
+
+<div class="search-bar">
+    <input type="text" placeholder="Search text" />
+    <select>
+        <option>Category</option>
+        <option>Cat 1</option>
+        <option>Cat 2</option>
+    </select>
+    <button>Search</button>
+</div>
+
+<div class="items-grid">
+    @for (int i = 1; i <= 8; i++)
+    {
+        <div class="item-card">
+            <img src="#" alt="Item image" />
+            <h4>Item @i</h4>
+            <p>Kratki opis stavke @i...</p>
+        </div>
+    }
+</div>
+
+<div class="pagination">
+    <button disabled>&lt; Previous</button>
+    <button>Next &gt;</button>
+</div>
+
+<footer>
+    <p>Footer text etc...</p>
+</footer>

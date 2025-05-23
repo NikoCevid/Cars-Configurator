@@ -1,51 +1,113 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Logovi</title>
+    <meta charset="UTF-8" />
+    <title>Log list</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 80%;
+            margin-top: 30px;
+            border: 1px solid #ccc;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .log-list {
+            padding: 15px;
+            height: 400px;
+            overflow-y: auto;
+        }
+
+            .log-list ul {
+                list-style-type: disc;
+                padding-left: 20px;
+            }
+
+            .log-list li {
+                margin-bottom: 8px;
+                color: #333;
+            }
+
+        .footer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+            gap: 10px;
+        }
+
+        select, button {
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Logovi</h2>
-    <select id="countSelect">
-        <option value="10">Zadnjih 10</option>
-        <option value="25">Zadnjih 25</option>
-        <option value="50">Zadnjih 50</option>
-    </select>
-    <button onclick="logout()">Odjava</button>
-    <ul id="logList"></ul>
+    <div class="container">
+        <div class="header">
+            <h2>Log list</h2>
+            <button onclick="logout()">Logout</button>
+        </div>
+        <div class="log-list">
+            <ul id="logList"></ul>
+        </div>
+        <div class="footer">
+            <select id="countSelect">
+                <option value="10">10</option>
+                <option value="25" selected>25</option>
+                <option value="50">50</option>
+            </select>
+            <button onclick="loadLogs()">Show Logs</button>
+        </div>
+    </div>
 
     <script>
-    const token = localStorage.getItem("token");
-    if (!token) window.location.href = "/html/login.html";
+        //const token = localStorage.getItem("token");
+        //if (!token) window.location.href = "/html/login.html";
 
-    document.getElementById("countSelect").addEventListener("change", loadLogs);
+        async function loadLogs() {
+            const count = document.getElementById("countSelect").value;
+            const res = await fetch(`/api/logs/get/${count}`, {
+                headers: { Authorization: "Bearer " + token }
+            });
 
-    function logout() {
-      localStorage.removeItem("token");
-      window.location.href = "/html/login.html";
-    }
+            const list = document.getElementById("logList");
+            list.innerHTML = "";
 
-    async function loadLogs() {
-      const count = document.getElementById("countSelect").value;
-      const res = await fetch(`/api/logs/get/${count}`, {
-        headers: { Authorization: "Bearer " + token }
-      });
+            if (res.ok) {
+                const logs = await res.json();
+                logs.forEach(log => {
+                    const item = document.createElement("li");
+                    item.textContent = `[${log.timestamp}] ${log.level}: ${log.message}`;
+                    list.appendChild(item);
+                });
+            } else {
+                list.innerHTML = "<li>Greška pri dohvaćanju logova.</li>";
+            }
+        }
 
-      if (res.ok) {
-        const logs = await res.json();
-        const list = document.getElementById("logList");
-        list.innerHTML = "";
-        logs.forEach(log => {
-          const item = document.createElement("li");
-          item.textContent = `${log.timestamp} | ${log.level}: ${log.message}`;
-          list.appendChild(item);
-        });
-      } else if (res.status === 401) {
-        alert("Pristup odbijen. Prijavi se ponovno.");
-        logout();
-      }
-    }
+        function logout() {
+            localStorage.removeItem("token");
+            window.location.href = "/html/login.html";
+        }
 
-    loadLogs(); // init on load
+        // Init load
+        loadLogs();
     </script>
 </body>
 </html>

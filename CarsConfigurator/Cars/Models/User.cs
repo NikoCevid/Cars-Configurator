@@ -11,9 +11,6 @@ public partial class User
 {
     [Key]
     public int Id { get; set; }
-    
-    [StringLength(100)]
-    public string Username { get; set; } = null!;
 
     [StringLength(100)]
     public string FirstName { get; set; } = null!;
@@ -32,6 +29,12 @@ public partial class User
 
     [StringLength(256)]
     public string PwdSalt { get; set; } = null!;
+
+    [StringLength(100)]
+    public string Username { get; set; } = null!;
+
+    [StringLength(100)]
+    public string Role { get; set; } = null!;
 
     [InverseProperty("User")]
     public virtual ICollection<Configuration> Configurations { get; set; } = new List<Configuration>();

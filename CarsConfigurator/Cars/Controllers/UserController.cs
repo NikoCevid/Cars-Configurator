@@ -230,9 +230,9 @@ namespace Cars.Controllers
                 var token = JwtTokenProvider.CreateToken(SecureKey, 10);
                 return Ok(token);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(500);
+                return StatusCode(500, ex.Message);
             }
         }
 

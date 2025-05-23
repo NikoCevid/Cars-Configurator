@@ -32,16 +32,26 @@ CREATE TABLE [dbo].[CarComponentCompatibility](
 GO
 
 -- User (customer who configures the car)
-CREATE TABLE [dbo].[User](
+CREATE TABLE [dbo].[User]
+(
     [Id] INT IDENTITY(1,1) NOT NULL,
     [FirstName] NVARCHAR(100) NOT NULL,
     [LastName] NVARCHAR(100) NOT NULL,
-    [Email] NVARCHAR(256) NOT NULL,
+	[Username] NVARCHAR(100) NOT NULL,
+    [Role] NVARCHAR(100) NOT NULL,
+	[Email] NVARCHAR(256) NOT NULL,
     [PasswordHash] NVARCHAR(256) NOT NULL,
     [Phone] NVARCHAR(50) NULL,
     CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED ([Id] ASC)
 )
 GO
+ALTER TABLE [User]
+ADD
+    [Username] NVARCHAR(100) NOT NULL DEFAULT '',
+    [Role] NVARCHAR(100) NOT NULL DEFAULT 'User';
+
+
+select * from [User]
 
 alter table [User]
 drop column

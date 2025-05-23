@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AVwpw6eDavjQjaSvJetJWmy7rCsJ4H+6JwfwYNtiXIA=",
+  "Hash": "GSyzalVqbH1//ACvnH2XCT6uROsxbvWT9afcs/R4VJI=",
   "Source": "Cars",
   "BasePath": "_content/Cars",
   "Mode": "Default",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "v2e6h15ldz",
-      "Integrity": "x3GyFo2PaXN343+mKhG6XaCIZD6hSooVQcAjL1oPgEM=",
+      "Fingerprint": "gdsbd2yyfx",
+      "Integrity": "nIZ9KEcDzjPSuy5ARuvL4UZCX6KU6ldZgG/gQ33ZYQI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\html\\login.html"
@@ -52,14 +52,59 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "7yudldc07o",
-      "Integrity": "7ybKE450gLcIPYKpUkSUQ3CaxmWeyEoIlcBXVx5ZzJU=",
+      "Fingerprint": "2ah2ip2v1w",
+      "Integrity": "+vnR2AyEI3I8suGA72IePSVChPiBGtghcQjlZTLGi2U=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\html\\logs.html"
     }
   ],
   "Endpoints": [
+    {
+      "Route": "html/login.gdsbd2yyfx.html",
+      "AssetFile": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\wwwroot\\html\\login.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2949"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nIZ9KEcDzjPSuy5ARuvL4UZCX6KU6ldZgG/gQ33ZYQI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 10:49:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gdsbd2yyfx"
+        },
+        {
+          "Name": "label",
+          "Value": "html/login.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nIZ9KEcDzjPSuy5ARuvL4UZCX6KU6ldZgG/gQ33ZYQI="
+        }
+      ]
+    },
     {
       "Route": "html/login.html",
       "AssetFile": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\wwwroot\\html\\login.html",
@@ -71,7 +116,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2710"
+          "Value": "2949"
         },
         {
           "Name": "Content-Type",
@@ -79,11 +124,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"x3GyFo2PaXN343+mKhG6XaCIZD6hSooVQcAjL1oPgEM=\""
+          "Value": "\"nIZ9KEcDzjPSuy5ARuvL4UZCX6KU6ldZgG/gQ33ZYQI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 16:20:59 GMT"
+          "Value": "Wed, 21 May 2025 10:49:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -93,57 +138,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-x3GyFo2PaXN343+mKhG6XaCIZD6hSooVQcAjL1oPgEM="
+          "Value": "sha256-nIZ9KEcDzjPSuy5ARuvL4UZCX6KU6ldZgG/gQ33ZYQI="
         }
       ]
     },
     {
-      "Route": "html/login.v2e6h15ldz.html",
-      "AssetFile": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\wwwroot\\html\\login.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2710"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"x3GyFo2PaXN343+mKhG6XaCIZD6hSooVQcAjL1oPgEM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 16:20:59 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "v2e6h15ldz"
-        },
-        {
-          "Name": "label",
-          "Value": "html/login.html"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-x3GyFo2PaXN343+mKhG6XaCIZD6hSooVQcAjL1oPgEM="
-        }
-      ]
-    },
-    {
-      "Route": "html/logs.7yudldc07o.html",
+      "Route": "html/logs.2ah2ip2v1w.html",
       "AssetFile": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\wwwroot\\html\\logs.html",
       "Selectors": [],
       "ResponseHeaders": [
@@ -153,7 +153,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1493"
+          "Value": "3117"
         },
         {
           "Name": "Content-Type",
@@ -161,11 +161,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"7ybKE450gLcIPYKpUkSUQ3CaxmWeyEoIlcBXVx5ZzJU=\""
+          "Value": "\"+vnR2AyEI3I8suGA72IePSVChPiBGtghcQjlZTLGi2U=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 16:08:49 GMT"
+          "Value": "Wed, 21 May 2025 11:06:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -175,7 +175,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "7yudldc07o"
+          "Value": "2ah2ip2v1w"
         },
         {
           "Name": "label",
@@ -183,7 +183,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-7ybKE450gLcIPYKpUkSUQ3CaxmWeyEoIlcBXVx5ZzJU="
+          "Value": "sha256-+vnR2AyEI3I8suGA72IePSVChPiBGtghcQjlZTLGi2U="
         }
       ]
     },
@@ -198,7 +198,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1493"
+          "Value": "3117"
         },
         {
           "Name": "Content-Type",
@@ -206,11 +206,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"7ybKE450gLcIPYKpUkSUQ3CaxmWeyEoIlcBXVx5ZzJU=\""
+          "Value": "\"+vnR2AyEI3I8suGA72IePSVChPiBGtghcQjlZTLGi2U=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 16:08:49 GMT"
+          "Value": "Wed, 21 May 2025 11:06:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -220,7 +220,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-7ybKE450gLcIPYKpUkSUQ3CaxmWeyEoIlcBXVx5ZzJU="
+          "Value": "sha256-+vnR2AyEI3I8suGA72IePSVChPiBGtghcQjlZTLGi2U="
         }
       ]
     }

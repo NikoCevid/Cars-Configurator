@@ -27,8 +27,10 @@ public partial class CarsContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
+    public virtual DbSet<UserRole> UserRoles { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("name=ConnectionStrings:Default");
+        => optionsBuilder.UseSqlServer("Name=Default");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -68,6 +70,17 @@ public partial class CarsContext : DbContext
             entity.HasOne(d => d.Configuration).WithMany(p => p.ConfigurationCarComponents)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ConfigurationCarComponent_Configuration");
+        });
+
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.Property(e => e.Role).HasDefaultValue("User");
+            entity.Property(e => e.Username).HasDefaultValue("");
+        });
+
+        modelBuilder.Entity<UserRole>(entity =>
+        {
+            entity.Property(e => e.Id).ValueGeneratedOnAdd();
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .login-wrapper {
+        display: flex;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+
+    .login-image {
+        flex: 1;
+        background-color: #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: #666;
+    }
+
+    .login-form-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+    }
+
+    .login-form {
+        background-color: #fff;
+        padding: 40px;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+    }
+
+        .login-form label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        .login-form button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+            .login-form button:hover {
+                background-color: #0056b3;
+            }
+</style>
+
+<div class="login-wrapper">
+    <div class="login-image">
+        <!-- Placeholder slika -->
+        <p>Slika / Logo</p>
+    </div>
+    <div class="login-form-container">
+        <form class="login-form" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" />
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" />
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>

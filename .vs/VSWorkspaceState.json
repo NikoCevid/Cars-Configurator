@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.github",
     "\\CarsConfigurator",
     "\\CarsConfigurator\\Cars",
-    "\\CarsConfigurator\\Cars\\Controllers",
     "\\CarsConfigurator\\Cars\\DTO",
     "\\CarsConfigurator\\Cars\\Models",
     "\\CarsConfigurator\\Cars\\obj",
     "\\CarsConfigurator\\Cars\\Properties",
-    "\\CarsConfigurator\\Cars\\Security"
+    "\\CarsConfigurator\\Cars\\Security",
+    "\\CarsConfigurator\\Cars\\wwwroot",
+    "\\CarsConfigurator\\Cars\\wwwroot\\html"
   ],
-  "SelectedNode": "\\CarsConfigurator\\Cars\\Program.cs",
+  "SelectedNode": "\\CarsConfigurator\\Cars\\wwwroot\\html\\logs.html",
   "PreviewInSolutionExplorer": false
 }
