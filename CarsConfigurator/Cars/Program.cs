@@ -1,7 +1,8 @@
-using Cars.Models;
+using Dao.Models;
 using Cars.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -18,7 +19,9 @@ builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.Re
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<CarsContext>();
+builder.Services.AddDbContext<CarsContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+
 
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
@@ -42,7 +45,6 @@ builder.Services
     });
 
 
-builder.Services.AddDbContext<CarsContext>();
 
 builder.Services.AddSwaggerGen(option =>
 {

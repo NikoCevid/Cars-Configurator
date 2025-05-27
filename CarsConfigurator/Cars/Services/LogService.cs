@@ -1,5 +1,5 @@
 ﻿using System.Collections.Concurrent;
-using Cars.Models;
+using Dao.Models;
 
 namespace Cars.Services
 {

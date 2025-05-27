@@ -282,3 +282,5 @@ C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars\obj\Debug\net8.0\Cars.pd
 C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars\obj\Debug\net8.0\Cars.genruntimeconfig.cache
 C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars\obj\Debug\net8.0\ref\Cars.dll
 C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars\bin\Debug\net8.0\Dao.dll
+C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars\bin\Debug\net8.0\Dao.pdb

@@ -4,13 +4,12 @@
     "\\CarsConfigurator",
     "\\CarsConfigurator\\Cars",
     "\\CarsConfigurator\\Cars\\DTO",
-    "\\CarsConfigurator\\Cars\\Models",
     "\\CarsConfigurator\\Cars\\obj",
     "\\CarsConfigurator\\Cars\\Properties",
     "\\CarsConfigurator\\Cars\\Security",
     "\\CarsConfigurator\\Cars\\wwwroot",
     "\\CarsConfigurator\\Cars\\wwwroot\\html"
   ],
-  "SelectedNode": "\\CarsConfigurator\\Cars\\wwwroot\\html\\logs.html",
+  "SelectedNode": "\\CarsConfigurator\\CarsConfigurator.sln",
   "PreviewInSolutionExplorer": false
 }

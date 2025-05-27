@@ -1,7 +1,7 @@
 ﻿using Cars.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Cars.Models;
+using Dao.Models;
 
 
 namespace Cars.Controllers
