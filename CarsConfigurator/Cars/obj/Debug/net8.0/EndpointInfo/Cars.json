@@ -5,10 +5,10 @@
     "version": "v1"
   },
   "paths": {
-    "/api/CarComponents": {
+    "/api/CarComponent": {
       "get": {
         "tags": [
-          "CarComponents"
+          "CarComponent"
         ],
         "responses": {
           "200": {
@@ -44,7 +44,7 @@
       },
       "post": {
         "tags": [
-          "CarComponents"
+          "CarComponent"
         ],
         "requestBody": {
           "content": {
@@ -72,10 +72,48 @@
         }
       }
     },
-    "/api/CarComponents/{id}": {
+    "/api/CarComponent/{id}": {
+      "get": {
+        "tags": [
+          "CarComponent"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarComponentDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarComponentDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarComponentDTO"
+                }
+              }
+            }
+          }
+        }
+      },
       "put": {
         "tags": [
-          "CarComponents"
+          "CarComponent"
         ],
         "parameters": [
           {
@@ -92,17 +130,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateCarComponentDTO"
+                "$ref": "#/components/schemas/CarComponentDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateCarComponentDTO"
+                "$ref": "#/components/schemas/CarComponentDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateCarComponentDTO"
+                "$ref": "#/components/schemas/CarComponentDTO"
               }
             }
           }
@@ -115,7 +153,7 @@
       },
       "delete": {
         "tags": [
-          "CarComponents"
+          "CarComponent"
         ],
         "parameters": [
           {
@@ -131,89 +169,47 @@
         "responses": {
           "200": {
             "description": "OK"
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "CarComponents"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CarComponentDTO"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CarComponentDTO"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CarComponentDTO"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/ComponentCompatibility/{componentId}": {
-      "get": {
-        "tags": [
-          "ComponentCompatibility"
-        ],
-        "parameters": [
-          {
-            "name": "componentId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ComponentCompatibilityDTO"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ComponentCompatibilityDTO"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ComponentCompatibilityDTO"
-                }
-              }
-            }
           }
         }
       }
     },
     "/api/ComponentCompatibility": {
+      "get": {
+        "tags": [
+          "ComponentCompatibility"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ComponentCompatibilityDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ComponentCompatibilityDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ComponentCompatibilityDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "tags": [
           "ComponentCompatibility"
@@ -242,30 +238,62 @@
             "description": "OK"
           }
         }
+      }
+    },
+    "/api/ComponentCompatibility/{id}": {
+      "get": {
+        "tags": [
+          "ComponentCompatibility"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentCompatibilityDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentCompatibilityDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentCompatibilityDTO"
+                }
+              }
+            }
+          }
+        }
       },
       "delete": {
         "tags": [
           "ComponentCompatibility"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCompabilityDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCompabilityDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCompabilityDTO"
-              }
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -398,17 +426,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateComponentTypeDTO"
+                "$ref": "#/components/schemas/ComponentTypeDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateComponentTypeDTO"
+                "$ref": "#/components/schemas/ComponentTypeDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateComponentTypeDTO"
+                "$ref": "#/components/schemas/ComponentTypeDTO"
               }
             }
           }
@@ -509,67 +537,6 @@
       }
     },
     "/api/Configurations/{id}": {
-      "put": {
-        "tags": [
-          "Configurations"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ConfigurationDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ConfigurationDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ConfigurationDTO"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Configurations"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
       "get": {
         "tags": [
           "Configurations"
@@ -607,25 +574,14 @@
             }
           }
         }
-      }
-    },
-    "/api/Configurations/{configurationId}/add-component/{componentId}": {
-      "post": {
+      },
+      "delete": {
         "tags": [
           "Configurations"
         ],
         "parameters": [
           {
-            "name": "configurationId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "componentId",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -751,7 +707,7 @@
         }
       }
     },
-    "/api/user": {
+    "/api/User": {
       "get": {
         "tags": [
           "User"
@@ -787,38 +743,9 @@
             }
           }
         }
-      },
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateUserDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateUserDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateUserDTO"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
       }
     },
-    "/api/user/{id}": {
+    "/api/User/{id}": {
       "get": {
         "tags": [
           "User"
@@ -856,21 +783,12 @@
             }
           }
         }
-      },
-      "put": {
+      }
+    },
+    "/api/User/register": {
+      "post": {
         "tags": [
           "User"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
         ],
         "requestBody": {
           "content": {
@@ -896,42 +814,9 @@
             "description": "OK"
           }
         }
-      },
-      "delete": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
       }
     },
-    "/api/user/GetToken": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/user/Register": {
+    "/api/User/login": {
       "post": {
         "tags": [
           "User"
@@ -940,17 +825,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateUserDTO"
+                "$ref": "#/components/schemas/UserLoginDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateUserDTO"
+                "$ref": "#/components/schemas/UserLoginDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateUserDTO"
+                "$ref": "#/components/schemas/UserLoginDTO"
               }
             }
           }
@@ -961,82 +846,20 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateUserDTO"
+                  "$ref": "#/components/schemas/UserDTO"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateUserDTO"
+                  "$ref": "#/components/schemas/UserDTO"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateUserDTO"
+                  "$ref": "#/components/schemas/UserDTO"
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/api/user/login": {
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserLoginDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserLoginDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserLoginDTO"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/user/changepassword": {
-      "put": {
-        "tags": [
-          "User"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangePasswordDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangePasswordDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangePasswordDTO"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
           }
         }
       }
@@ -1064,20 +887,6 @@
             "nullable": true
           },
           "imagePath": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ChangePasswordDTO": {
-        "type": "object",
-        "properties": {
-          "currentPassword": {
-            "type": "string",
-            "nullable": true
-          },
-          "newPassword": {
             "type": "string",
             "nullable": true
           }

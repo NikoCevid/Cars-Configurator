@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "Cars.Controllers.CarComponentsController",
+    "ContainingType": "Cars.Controllers.CarComponentController",
     "Method": "GetAll",
-    "RelativePath": "api/CarComponents",
+    "RelativePath": "api/CarComponent",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -20,15 +20,15 @@
     ]
   },
   {
-    "ContainingType": "Cars.Controllers.CarComponentsController",
-    "Method": "Post",
-    "RelativePath": "api/CarComponents",
+    "ContainingType": "Cars.Controllers.CarComponentController",
+    "Method": "Create",
+    "RelativePath": "api/CarComponent",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "model",
+        "Name": "dto",
         "Type": "Cars.DTO.CreateCarComponentDTO",
         "IsRequired": true
       }
@@ -36,46 +36,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Cars.Controllers.CarComponentsController",
-    "Method": "Put",
-    "RelativePath": "api/CarComponents/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "model",
-        "Type": "Cars.DTO.CreateCarComponentDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Cars.Controllers.CarComponentsController",
-    "Method": "Delete",
-    "RelativePath": "api/CarComponents/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Cars.Controllers.CarComponentsController",
-    "Method": "GetBy",
-    "RelativePath": "api/CarComponents/{id}",
+    "ContainingType": "Cars.Controllers.CarComponentController",
+    "Method": "GetById",
+    "RelativePath": "api/CarComponent/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -99,8 +62,65 @@
     ]
   },
   {
+    "ContainingType": "Cars.Controllers.CarComponentController",
+    "Method": "Update",
+    "RelativePath": "api/CarComponent/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Cars.DTO.CarComponentDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Cars.Controllers.CarComponentController",
+    "Method": "Delete",
+    "RelativePath": "api/CarComponent/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Cars.Controllers.ComponentCompatibilityController",
-    "Method": "CreateCompatibility",
+    "Method": "GetAll",
+    "RelativePath": "api/ComponentCompatibility",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Cars.DTO.ComponentCompatibilityDTO, Cars, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Cars.Controllers.ComponentCompatibilityController",
+    "Method": "Create",
     "RelativePath": "api/ComponentCompatibility",
     "HttpMethod": "POST",
     "IsController": true,
@@ -116,30 +136,14 @@
   },
   {
     "ContainingType": "Cars.Controllers.ComponentCompatibilityController",
-    "Method": "DeleteCompatibility",
-    "RelativePath": "api/ComponentCompatibility",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "Cars.DTO.CreateCompabilityDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Cars.Controllers.ComponentCompatibilityController",
-    "Method": "GetCompatibleComponents",
-    "RelativePath": "api/ComponentCompatibility/{componentId}",
+    "Method": "GetById",
+    "RelativePath": "api/ComponentCompatibility/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "componentId",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -155,6 +159,22 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "Cars.Controllers.ComponentCompatibilityController",
+    "Method": "Delete",
+    "RelativePath": "api/ComponentCompatibility/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Cars.Controllers.ComponentTypesController",
@@ -178,14 +198,14 @@
   },
   {
     "ContainingType": "Cars.Controllers.ComponentTypesController",
-    "Method": "Post",
+    "Method": "Create",
     "RelativePath": "api/ComponentTypes",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "model",
+        "Name": "dto",
         "Type": "Cars.DTO.CreateComponentTypeDTO",
         "IsRequired": true
       }
@@ -220,7 +240,7 @@
   },
   {
     "ContainingType": "Cars.Controllers.ComponentTypesController",
-    "Method": "Put",
+    "Method": "Update",
     "RelativePath": "api/ComponentTypes/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -232,8 +252,8 @@
         "IsRequired": true
       },
       {
-        "Name": "model",
-        "Type": "Cars.DTO.CreateComponentTypeDTO",
+        "Name": "dto",
+        "Type": "Cars.DTO.ComponentTypeDTO",
         "IsRequired": true
       }
     ],
@@ -277,14 +297,14 @@
   },
   {
     "ContainingType": "Cars.Controllers.ConfigurationsController",
-    "Method": "Post",
+    "Method": "Create",
     "RelativePath": "api/Configurations",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "model",
+        "Name": "dto",
         "Type": "Cars.DTO.ConfigurationDTO",
         "IsRequired": true
       }
@@ -293,65 +313,7 @@
   },
   {
     "ContainingType": "Cars.Controllers.ConfigurationsController",
-    "Method": "AddCarComponentToConfiguration",
-    "RelativePath": "api/Configurations/{configurationId}/add-component/{componentId}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "configurationId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "componentId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Cars.Controllers.ConfigurationsController",
-    "Method": "Put",
-    "RelativePath": "api/Configurations/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "model",
-        "Type": "Cars.DTO.ConfigurationDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Cars.Controllers.ConfigurationsController",
-    "Method": "Delete",
-    "RelativePath": "api/Configurations/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Cars.Controllers.ConfigurationsController",
-    "Method": "GetBy",
+    "Method": "GetById",
     "RelativePath": "api/Configurations/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -374,6 +336,22 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "Cars.Controllers.ConfigurationsController",
+    "Method": "Delete",
+    "RelativePath": "api/Configurations/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Cars.Controllers.LogsController",
@@ -444,7 +422,7 @@
   {
     "ContainingType": "Cars.Controllers.UserController",
     "Method": "GetAll",
-    "RelativePath": "api/user",
+    "RelativePath": "api/User",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -463,24 +441,8 @@
   },
   {
     "ContainingType": "Cars.Controllers.UserController",
-    "Method": "Post",
-    "RelativePath": "api/user",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "Cars.DTO.CreateUserDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Cars.Controllers.UserController",
-    "Method": "GetBy",
-    "RelativePath": "api/user/{id}",
+    "Method": "GetById",
+    "RelativePath": "api/User/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -505,100 +467,21 @@
   },
   {
     "ContainingType": "Cars.Controllers.UserController",
-    "Method": "Put",
-    "RelativePath": "api/user/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "model",
-        "Type": "Cars.DTO.CreateUserDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Cars.Controllers.UserController",
-    "Method": "Delete",
-    "RelativePath": "api/user/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Cars.Controllers.UserController",
-    "Method": "ChangePassword",
-    "RelativePath": "api/user/changepassword",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "Cars.DTO.ChangePasswordDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Cars.Controllers.UserController",
-    "Method": "GetToken",
-    "RelativePath": "api/user/GetToken",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Cars.Controllers.UserController",
     "Method": "Login",
-    "RelativePath": "api/user/login",
+    "RelativePath": "api/User/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "UserLoginDTO",
+        "Name": "dto",
         "Type": "Cars.DTO.UserLoginDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Cars.Controllers.UserController",
-    "Method": "Register",
-    "RelativePath": "api/user/Register",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CreateUserDTO",
-        "Type": "Cars.DTO.CreateUserDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "Cars.DTO.CreateUserDTO",
+        "Type": "Cars.DTO.UserDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -607,5 +490,21 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "Cars.Controllers.UserController",
+    "Method": "Register",
+    "RelativePath": "api/User/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Cars.DTO.CreateUserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

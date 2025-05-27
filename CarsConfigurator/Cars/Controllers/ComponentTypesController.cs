@@ -1,6 +1,7 @@
-﻿using Cars.DTO;
+﻿using AutoMapper;
+using Cars.DTO;
+using Cars.Services.Interfaces;
 using Dao.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cars.Controllers
@@ -9,136 +10,52 @@ namespace Cars.Controllers
     [ApiController]
     public class ComponentTypesController : ControllerBase
     {
-        private readonly CarsContext _context;
+        private readonly IComponentTypeService _service;
+        private readonly IMapper _mapper;
 
-        public ComponentTypesController(CarsContext context)
+        public ComponentTypesController(IComponentTypeService service, IMapper mapper)
         {
-            _context = context;
+            _service = service;
+            _mapper = mapper;
         }
 
-        // GET: api/componenttypes
         [HttpGet]
-        public ActionResult<IEnumerable<ComponentTypeDTO>> GetAll()
+        public async Task<ActionResult<IEnumerable<ComponentTypeDTO>>> GetAll()
         {
-            try
-            {
-                var types = _context.ComponentTypes
-                    .Select(x => new ComponentTypeDTO
-                    {
-                        Id = x.Id,
-                        Name = x.Name
-                    })
-                    .ToList();
-
-                return Ok(types);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return StatusCode(500);
-            }
+            var data = await _service.GetAllAsync();
+            return Ok(_mapper.Map<List<ComponentTypeDTO>>(data));
         }
 
-        // GET: api/componenttypes/5
         [HttpGet("{id}")]
-        public ActionResult<ComponentTypeDTO> GetById(int id)
+        public async Task<ActionResult<ComponentTypeDTO>> GetById(int id)
         {
-            try
-            {
-                var type = _context.ComponentTypes
-                    .Where(x => x.Id == id)
-                    .Select(x => new ComponentTypeDTO
-                    {
-                        Id = x.Id,
-                        Name = x.Name
-                    })
-                    .FirstOrDefault();
-
-                if (type == null)
-                    return NotFound();
-
-                return Ok(type);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return StatusCode(500);
-            }
+            var type = await _service.GetByIdAsync(id);
+            if (type == null) return NotFound();
+            return Ok(_mapper.Map<ComponentTypeDTO>(type));
         }
 
-        // POST: api/componenttypes
         [HttpPost]
-        public IActionResult Post(CreateComponentTypeDTO model)
+        public async Task<ActionResult> Create([FromBody] CreateComponentTypeDTO dto)
         {
-            try
-            {
-                var type = new ComponentType
-                {
-                    Name = model.Name
-                };
-
-                _context.ComponentTypes.Add(type);
-                _context.SaveChanges();
-
-                return CreatedAtAction(nameof(GetById), new { id = type.Id }, new ComponentTypeDTO
-                {
-                    Id = type.Id,
-                    Name = type.Name
-                });
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return StatusCode(500);
-            }
+            var entity = _mapper.Map<ComponentType>(dto);
+            await _service.AddAsync(entity);
+            return Ok();
         }
 
-        // PUT: api/componenttypes/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, CreateComponentTypeDTO model)
+        public async Task<ActionResult> Update(int id, [FromBody] ComponentTypeDTO dto)
         {
-            try
-            {
-                var existing = _context.ComponentTypes.Find(id);
-                if (existing == null)
-                    return NotFound();
-
-                existing.Name = model.Name;
-                _context.SaveChanges();
-
-                return Ok(new ComponentTypeDTO
-                {
-                    Id = existing.Id,
-                    Name = existing.Name
-                });
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return StatusCode(500);
-            }
+            if (id != dto.Id) return BadRequest();
+            var entity = _mapper.Map<ComponentType>(dto);
+            await _service.UpdateAsync(entity);
+            return Ok();
         }
 
-        // DELETE: api/componenttypes/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            try
-            {
-                var existing = _context.ComponentTypes.Find(id);
-                if (existing == null)
-                    return NotFound();
-
-                _context.ComponentTypes.Remove(existing);
-                _context.SaveChanges();
-
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return StatusCode(500);
-            }
+            await _service.DeleteAsync(id);
+            return Ok();
         }
     }
 }

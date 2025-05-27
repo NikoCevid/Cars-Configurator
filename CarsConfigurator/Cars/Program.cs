@@ -1,4 +1,5 @@
 using Dao.Models;
+using Dao.Repositories;
 using Cars.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,9 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Text.Json.Serialization;
+using Dao.Interfaces;
+using Cars.Services.Interfaces;
+using Cars.Mapping;
 
 
 
@@ -79,7 +83,26 @@ builder.Services.AddSwaggerGen(option =>
         });
 });
 
+//interface, repository
 builder.Services.AddSingleton<LogService>();
+builder.Services.AddScoped<ICarComponentRepository, CarComponentRepository>();
+builder.Services.AddScoped<IComponentTypeRepository, ComponentTypeRepository>();
+builder.Services.AddScoped<ICarComponentCompatibilityRepository, CarComponentCompatibilityRepository>();
+builder.Services.AddScoped<IConfigurationRepository, ConfigurationRepository>();
+builder.Services.AddScoped<IConfigurationCarComponentRepository, ConfigurationCarComponentRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+//service
+builder.Services.AddScoped<ICarComponentService, CarComponentService>();
+builder.Services.AddScoped<IComponentTypeService, ComponentTypeService>();
+builder.Services.AddScoped<ICarComponentCompatibilityService, CarComponentCompatibilityService>();
+builder.Services.AddScoped<IConfigurationService, ConfigurationService>();
+builder.Services.AddScoped<IConfigurationCarComponentService, ConfigurationCarComponentService>();
+builder.Services.AddScoped<IUserService, UserService>();
+
+//automapper
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
 
 var app = builder.Build();
 

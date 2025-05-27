@@ -5,14 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\cars.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\cars.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|c:\\users\\user\\desktop\\rwa projekt\\carsconfigurator\\cars\\controllers\\carcomponentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1ED48D8-4562-4891-A36C-7E37A600416E}|Cars\\Cars.csproj|solutionrelative:cars\\controllers\\carcomponentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,35 +24,9 @@
               "RelativeDocumentMoniker": "Cars\\Program.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Program.cs",
               "RelativeToolTip": "Cars\\Program.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAgwDcAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAmwGwAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T15:36:19.717Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Cars.csproj",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Cars.csproj",
-              "RelativeDocumentMoniker": "Cars\\Cars.csproj",
-              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Cars.csproj",
-              "RelativeToolTip": "Cars\\Cars.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-23T18:27:59.441Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CarComponentsController.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Controllers\\CarComponentsController.cs",
-              "RelativeDocumentMoniker": "Cars\\Controllers\\CarComponentsController.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\Controllers\\CarComponentsController.cs",
-              "RelativeToolTip": "Cars\\Controllers\\CarComponentsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T18:23:27.21Z",
+              "WhenOpened": "2025-05-27T18:38:02.714Z",
               "EditorCaption": ""
             }
           ]

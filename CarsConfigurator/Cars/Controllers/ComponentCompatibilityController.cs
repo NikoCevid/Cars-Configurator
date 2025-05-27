@@ -1,7 +1,8 @@
-﻿using Cars.DTO;
+﻿using AutoMapper;
+using Cars.DTO;
+using Cars.Services.Interfaces;
 using Dao.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Cars.Controllers
 {
@@ -9,77 +10,42 @@ namespace Cars.Controllers
     [ApiController]
     public class ComponentCompatibilityController : ControllerBase
     {
-        private readonly CarsContext _context;
+        private readonly ICarComponentCompatibilityService _service;
+        private readonly IMapper _mapper;
 
-        public ComponentCompatibilityController(CarsContext context)
+        public ComponentCompatibilityController(ICarComponentCompatibilityService service, IMapper mapper)
         {
-            _context = context;
+            _service = service;
+            _mapper = mapper;
         }
 
-        [HttpGet("{componentId}")]
-        public ActionResult<ComponentCompatibilityDTO> GetCompatibleComponents(int componentId)
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ComponentCompatibilityDTO>>> GetAll()
         {
-            var component = _context.CarComponents
-                .Include(c => c.CarComponentCompatibilityCarComponentId1Navigations)
-                    .ThenInclude(cc => cc.CarComponentId2Navigation)
-                .FirstOrDefault(c => c.Id == componentId);
+            var data = await _service.GetAllAsync();
+            return Ok(_mapper.Map<List<ComponentCompatibilityDTO>>(data));
+        }
 
-            if (component == null)
-                return NotFound();
-
-            var dto = new ComponentCompatibilityDTO
-            {
-                ComponentId = component.Id,
-                ComponentName = component.Name,
-                CompatibleWith = component.CarComponentCompatibilityCarComponentId1Navigations
-                    .Select(cc => new CompatibleComponentDTO
-                    {
-                        Id = cc.CarComponentId2,
-                        Name = cc.CarComponentId2Navigation.Name
-                    }).ToList()
-            };
-
-            return Ok(dto);
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ComponentCompatibilityDTO>> GetById(int id)
+        {
+            var item = await _service.GetByIdAsync(id);
+            if (item == null) return NotFound();
+            return Ok(_mapper.Map<ComponentCompatibilityDTO>(item));
         }
 
         [HttpPost]
-        public IActionResult CreateCompatibility(CreateCompabilityDTO dto)
+        public async Task<ActionResult> Create([FromBody] CreateCompabilityDTO dto)
         {
-            if (dto.ComponentId1 == dto.ComponentId2)
-                return BadRequest("Komponenta ne može biti kompatibilna sama sa sobom.");
-
-            var exists = _context.CarComponentCompatibilities.Any(c =>
-                (c.CarComponentId1 == dto.ComponentId1 && c.CarComponentId2 == dto.ComponentId2) ||
-                (c.CarComponentId1 == dto.ComponentId2 && c.CarComponentId2 == dto.ComponentId1));
-
-            if (exists)
-                return Conflict("Kompatibilnost već postoji.");
-
-            var compatibility = new CarComponentCompatibility
-            {
-                CarComponentId1 = dto.ComponentId1,
-                CarComponentId2 = dto.ComponentId2
-            };
-
-            _context.CarComponentCompatibilities.Add(compatibility);
-            _context.SaveChanges();
-
+            var entity = _mapper.Map<CarComponentCompatibility>(dto);
+            await _service.AddAsync(entity);
             return Ok();
         }
 
-        [HttpDelete]
-        public IActionResult DeleteCompatibility([FromBody] CreateCompabilityDTO dto)
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
         {
-            var item = _context.CarComponentCompatibilities.FirstOrDefault(c =>
-                (c.CarComponentId1 == dto.ComponentId1 && c.CarComponentId2 == dto.ComponentId2) ||
-                (c.CarComponentId1 == dto.ComponentId2 && c.CarComponentId2 == dto.ComponentId1));
-
-            if (item == null)
-                return NotFound("Kompatibilnost nije pronađena.");
-
-            _context.CarComponentCompatibilities.Remove(item);
-            _context.SaveChanges();
-
+            await _service.DeleteAsync(id);
             return Ok();
         }
     }
