@@ -1,0 +1,31 @@
+﻿@model Dao.Models.CarComponent
+
+@{
+    ViewData["Title"] = "Detalji komponente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalji komponente</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Naziv</dt>
+        <dd class="col-sm-9">@Model.Name</dd>
+
+        <dt class="col-sm-3">Opis</dt>
+        <dd class="col-sm-9">@Model.Description</dd>
+
+        <dt class="col-sm-3">Vrsta komponente</dt>
+        <dd class="col-sm-9">@Model.ComponentType?.Name</dd>
+
+        <dt class="col-sm-3">Slika</dt>
+        <dd class="col-sm-9">
+            <img src="@Model.ImagePath" alt="Nema slike" width="300" />
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Uredi</a>
+    <a asp-action="Index" class="btn btn-secondary">Natrag</a>
+</div>

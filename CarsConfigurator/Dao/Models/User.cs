@@ -38,4 +38,8 @@ public partial class User
 
     [InverseProperty("User")]
     public virtual ICollection<Configuration> Configurations { get; set; } = new List<Configuration>();
+
+    [InverseProperty("User")]
+    public virtual ICollection<UserConfiguration> UserConfigurations { get; set; } = new List<UserConfiguration>();
+
 }

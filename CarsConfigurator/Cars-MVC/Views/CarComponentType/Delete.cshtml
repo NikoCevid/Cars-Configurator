@@ -1,0 +1,21 @@
+﻿@model Dao.Models.ComponentType
+
+@{
+    ViewData["Title"] = "Brisanje tipa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Potvrda brisanja</h2>
+
+<h4>Jeste li sigurni da želite obrisati ovaj tip?</h4>
+
+<dl class="row">
+    <dt class="col-sm-2">Naziv</dt>
+    <dd class="col-sm-10">@Model.Name</dd>
+</dl>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Obriši</button>
+    <a asp-action="Index" class="btn btn-secondary">Odustani</a>
+</form>

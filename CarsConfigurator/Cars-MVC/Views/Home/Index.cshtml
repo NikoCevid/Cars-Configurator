@@ -1,8 +1,67 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Početna";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+
+    .fullscreen-landing {
+        min-height: calc(100vh - 60px); /* minus header/footer ako imaš */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 40px;
+        background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+        color: white;
+    }
+
+        .fullscreen-landing h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .fullscreen-landing p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
+
+    .landing-buttons {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+        .landing-buttons a {
+            background-color: #007bff;
+            color: white;
+            padding: 14px 28px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            transition: background-color 0.2s ease;
+        }
+
+            .landing-buttons a:hover {
+                background-color: #0056b3;
+            }
+</style>
+
+<div class="fullscreen-landing">
+    <h1>Dobrodošli u konfigurator automobila</h1>
+    <p>Prilagodi svoj automobil po vlastitim željama. Upravljaj komponentama ili izradi vlastitu konfiguraciju.</p>
+
+    <div class="landing-buttons">
+        <a href="/CarComponent">🚗 Komponente</a>
+        <a href="/Auth/Login">🔐 Prijava</a>
+        <a href="/Auth/Register">📝 Registracija</a>
+        <a href="/Admin/Profile">⚙️ Admin Panel</a>
+    </div>
 </div>

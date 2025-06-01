@@ -1,0 +1,33 @@
+﻿@model Dao.Models.CarComponent
+
+@{
+    ViewData["Title"] = "Brisanje komponente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Potvrda brisanja</h2>
+
+<h4>Jeste li sigurni da želite obrisati ovu komponentu?</h4>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">Naziv</dt>
+    <dd class="col-sm-9">@Model.Name</dd>
+
+    <dt class="col-sm-3">Opis</dt>
+    <dd class="col-sm-9">@Model.Description</dd>
+
+    <dt class="col-sm-3">Vrsta</dt>
+    <dd class="col-sm-9">@Model.ComponentType?.Name</dd>
+
+    <dt class="col-sm-3">Slika</dt>
+    <dd class="col-sm-9">
+        <img src="@Model.ImagePath" alt="Nema slike" width="200" />
+    </dd>
+</dl>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Obriši</button>
+    <a asp-action="Index" class="btn btn-secondary">Odustani</a>
+</form>

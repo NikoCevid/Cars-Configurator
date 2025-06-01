@@ -1,0 +1,25 @@
+﻿@model Dao.Models.ComponentType
+
+@{
+    ViewData["Title"] = "Uredi tip";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Uredi tip komponente</h2>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Spremi</button>
+    <a asp-action="Index" class="btn btn-secondary">Odustani</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

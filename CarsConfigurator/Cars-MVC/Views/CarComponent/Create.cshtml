@@ -1,0 +1,44 @@
+﻿@model Dao.Models.CarComponent
+
+@{
+    ViewData["Title"] = "Dodaj komponentu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dodaj novu komponentu</h2>
+
+<form asp-action="Create" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ComponentTypeId" class="control-label">Vrsta komponente</label>
+        <select asp-for="ComponentTypeId" asp-items="ViewBag.ComponentTypeId" class="form-control"></select>
+        <span asp-validation-for="ComponentTypeId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Slika komponente</label>
+        <input type="file" name="file" class="form-control-file" />
+    </div>
+
+    <div class="form-group mt-3">
+        <button type="submit" class="btn btn-success">Spremi</button>
+        <a asp-action="Index" class="btn btn-secondary">Odustani</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

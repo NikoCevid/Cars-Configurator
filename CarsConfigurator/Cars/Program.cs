@@ -116,6 +116,7 @@ if (app.Environment.IsDevelopment())
 app.UseAuthentication();
 app.UseAuthorization();
 
+
 app.MapControllers();
 
 app.UseDefaultFiles(); // omoguæuje uèitavanje npr. /html/login.html

@@ -1,0 +1,51 @@
+﻿@model Dao.Models.CarComponent
+
+@{
+    ViewData["Title"] = "Uredi komponentu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Uredi komponentu</h2>
+
+<form asp-action="Edit" enctype="multipart/form-data" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ComponentTypeId" class="control-label">Vrsta komponente</label>
+        <select asp-for="ComponentTypeId" asp-items="ViewBag.ComponentTypeId" class="form-control"></select>
+        <span asp-validation-for="ComponentTypeId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Trenutna slika:</label><br />
+        <img src="@Model.ImagePath" alt="Nema slike" width="200" />
+    </div>
+
+    <div class="form-group">
+        <label>Nova slika (opcionalno)</label>
+        <input type="file" name="file" class="form-control-file" />
+    </div>
+
+    <div class="form-group mt-3">
+        <button type="submit" class="btn btn-primary">Spremi</button>
+        <a asp-action="Index" class="btn btn-secondary">Odustani</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -36,4 +36,8 @@ public partial class CarComponent
 
     [InverseProperty("CarComponent")]
     public virtual ICollection<ConfigurationCarComponent> ConfigurationCarComponents { get; set; } = new List<ConfigurationCarComponent>();
+
+    [InverseProperty("CarComponent")]
+    public virtual ICollection<UserConfiguration> UserConfigurations { get; set; } = new List<UserConfiguration>();
+
 }

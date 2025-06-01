@@ -1,0 +1,16 @@
+﻿@model Dao.Models.ComponentType
+
+@{
+    ViewData["Title"] = "Detalji tipa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalji tipa komponente</h2>
+
+<dl class="row">
+    <dt class="col-sm-2">Naziv</dt>
+    <dd class="col-sm-10">@Model.Name</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Uredi</a>
+<a asp-action="Index" class="btn btn-secondary">Natrag</a>
