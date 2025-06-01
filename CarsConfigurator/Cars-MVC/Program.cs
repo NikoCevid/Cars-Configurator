@@ -9,6 +9,15 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CarsContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
+builder.Services.AddAuthentication("MyCookieAuth")
+    .AddCookie("MyCookieAuth", options =>
+    {
+        options.LoginPath = "/Auth/Login";
+        options.LogoutPath = "/Auth/Logout";
+        options.AccessDeniedPath = "/Auth/Login";
+    });
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -19,6 +28,7 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication(); //  mora iæi prije UseAuthorization
 
 app.UseAuthorization();
 

@@ -1,0 +1,28 @@
+﻿@model List<Dao.Models.CarComponent>
+
+@{
+    ViewData["Title"] = "Moja konfiguracija";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Moje odabrane komponente</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Naziv</th>
+            <th>Opis</th>
+            <th>Vrsta</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Name</td>
+                <td>@c.Description</td>
+                <td>@c.ComponentType?.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,31 @@
+﻿@model Dao.Models.User
+
+@{
+    ViewData["Title"] = "Detalji korisnika";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalji korisnika</h2>
+
+<dl class="row">
+    <dt class="col-sm-3">Korisničko ime</dt>
+    <dd class="col-sm-9">@Model.Username</dd>
+
+    <dt class="col-sm-3">Email</dt>
+    <dd class="col-sm-9">@Model.Email</dd>
+
+    <dt class="col-sm-3">Ime</dt>
+    <dd class="col-sm-9">@Model.FirstName</dd>
+
+    <dt class="col-sm-3">Prezime</dt>
+    <dd class="col-sm-9">@Model.LastName</dd>
+
+    <dt class="col-sm-3">Telefon</dt>
+    <dd class="col-sm-9">@Model.Phone</dd>
+
+    <dt class="col-sm-3">Uloga</dt>
+    <dd class="col-sm-9">@Model.Role</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Uredi</a>
+<a asp-action="Index" class="btn btn-secondary">Natrag</a>

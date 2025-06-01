@@ -1,0 +1,71 @@
+﻿@model Cars_MVC.Models.AdminUserListViewModel
+@{
+    ViewData["Title"] = "Popis korisnika";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Popis korisnika</h2>
+
+<form method="get" class="row mb-3">
+    <div class="col-md-4">
+        <input type="text" name="SearchUsername" value="@Model.SearchUsername" placeholder="Korisničko ime" class="form-control" />
+    </div>
+    <div class="col-md-4">
+        <select name="SearchRole" class="form-select">
+            <option value="">-- Uloga --</option>
+           @foreach (var role in Model.AvailableRoles)
+{
+    var selected = role == Model.SearchRole ? "selected" : "";
+    <option value="@role" selected>@role</option>
+}
+
+        </select>
+    </div>
+    <div class="col-md-4">
+        <button type="submit" class="btn btn-primary">Pretraži</button>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Korisničko ime</th>
+            <th>Email</th>
+            <th>Uloga</th>
+            <th>Ime i Prezime</th>
+            <th>Telefon</th>
+            <th>Akcije</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>@user.Role</td>
+                <td>@user.FirstName @user.LastName</td>
+                <td>@user.Phone</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@user.Id" class="btn btn-sm btn-warning">Uredi</a>
+                    <a asp-action="Delete" asp-route-id="@user.Id" class="btn btn-sm btn-danger">Obriši</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (Model.TotalPages > 1)
+{
+    <nav>
+        <ul class="pagination">
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                    <a class="page-link"
+                       href="?SearchUsername=@Model.SearchUsername&SearchRole=@Model.SearchRole&Page=@i">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}

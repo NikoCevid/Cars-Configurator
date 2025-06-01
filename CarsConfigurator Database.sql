@@ -89,6 +89,15 @@ CREATE TABLE [dbo].[ConfigurationCarComponent](
 )
 GO
 
+CREATE TABLE [dbo].[UserConfiguration] (
+    [Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+    [UserId] INT NOT NULL,
+    [CarComponentId] INT NOT NULL,
+    CONSTRAINT FK_UserConfiguration_User FOREIGN KEY (UserId) REFERENCES [dbo].[User](Id),
+    CONSTRAINT FK_UserConfiguration_CarComponent FOREIGN KEY (CarComponentId) REFERENCES [dbo].[CarComponent](Id)
+);
+
+
 -- FOREIGN KEYS
 
 -- CarComponent → ComponentType (1:N relationship)

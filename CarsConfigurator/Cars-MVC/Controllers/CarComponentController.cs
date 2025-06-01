@@ -16,49 +16,43 @@ namespace Cars_MVC.Controllers
         }
 
         // GET: CarComponent
+        public async Task<IActionResult> Index(CarComponentFilterViewModel filter)
+        {
+            int pageSize = 10;
 
-public async Task<IActionResult> Index(CarComponentFilterViewModel filter)
-    {
-        int pageSize = 10;
+            var query = _context.CarComponents.Include(c => c.ComponentType).AsQueryable();
 
-        var query = _context.CarComponents
-            .Include(c => c.ComponentType)
-            .AsQueryable();
+            if (!string.IsNullOrWhiteSpace(filter.SearchTerm))
+                query = query.Where(c => c.Name.Contains(filter.SearchTerm));
 
-        if (!string.IsNullOrWhiteSpace(filter.SearchTerm))
-            query = query.Where(c => c.Name.Contains(filter.SearchTerm));
+            if (filter.ComponentTypeId.HasValue)
+                query = query.Where(c => c.ComponentTypeId == filter.ComponentTypeId);
 
-        if (filter.ComponentTypeId.HasValue)
-            query = query.Where(c => c.ComponentTypeId == filter.ComponentTypeId);
-
-        int totalItems = await query.CountAsync();
-        var components = await query
-            .Skip((filter.Page - 1) * pageSize)
-            .Take(pageSize)
-            .ToListAsync();
+            int totalItems = await query.CountAsync();
+            var components = await query
+                .Skip((filter.Page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
 
             ViewBag.ComponentTypes = _context.ComponentTypes
-         .Select(c => new SelectListItem
-         {
-             Value = c.Id.ToString(),
-             Text = c.Name
-         })
-         .ToList();
+                .Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name })
+                .ToList();
+
             ViewBag.Filter = filter;
-        ViewBag.TotalPages = (int)Math.Ceiling((double)totalItems / pageSize);
+            ViewBag.TotalPages = (int)Math.Ceiling((double)totalItems / pageSize);
 
-        return View(components);
-    }
+            return View(components);
+        }
 
-
-    // GET: CarComponent/Details/5
-    public async Task<IActionResult> Details(int? id)
+        // GET: CarComponent/Details/5
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
 
             var component = await _context.CarComponents
                 .Include(c => c.ComponentType)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (component == null) return NotFound();
 
             return View(component);
@@ -78,15 +72,14 @@ public async Task<IActionResult> Index(CarComponentFilterViewModel filter)
         {
             if (ModelState.IsValid)
             {
-                if (file != null)
+                if (file != null && file.Length > 0)
                 {
                     var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
-                    var savePath = Path.Combine("wwwroot/uploads", fileName);
-                    using (var stream = new FileStream(savePath, FileMode.Create))
+                    var path = Path.Combine("wwwroot/uploads", fileName);
+                    using (var stream = new FileStream(path, FileMode.Create))
                     {
                         await file.CopyToAsync(stream);
                     }
-
                     component.ImagePath = "/uploads/" + fileName;
                 }
 
@@ -111,7 +104,7 @@ public async Task<IActionResult> Index(CarComponentFilterViewModel filter)
             return View(component);
         }
 
-        //  POST: CarComponent/Edit/5 — s podrškom za upload nove slike
+        // POST: CarComponent/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, CarComponent component, IFormFile? file)
@@ -122,13 +115,14 @@ public async Task<IActionResult> Index(CarComponentFilterViewModel filter)
             {
                 try
                 {
-                    if (file != null)
+                    if (file != null && file.Length > 0)
                     {
                         var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
                         var path = Path.Combine("wwwroot/uploads", fileName);
                         using (var stream = new FileStream(path, FileMode.Create))
+                        {
                             await file.CopyToAsync(stream);
-
+                        }
                         component.ImagePath = "/uploads/" + fileName;
                     }
 
@@ -139,9 +133,9 @@ public async Task<IActionResult> Index(CarComponentFilterViewModel filter)
                 {
                     if (!_context.CarComponents.Any(e => e.Id == id))
                         return NotFound();
-                    else
-                        throw;
+                    else throw;
                 }
+
                 return RedirectToAction(nameof(Index));
             }
 
@@ -157,6 +151,7 @@ public async Task<IActionResult> Index(CarComponentFilterViewModel filter)
             var component = await _context.CarComponents
                 .Include(c => c.ComponentType)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (component == null) return NotFound();
 
             return View(component);
@@ -173,6 +168,7 @@ public async Task<IActionResult> Index(CarComponentFilterViewModel filter)
                 _context.CarComponents.Remove(component);
                 await _context.SaveChangesAsync();
             }
+
             return RedirectToAction(nameof(Index));
         }
     }

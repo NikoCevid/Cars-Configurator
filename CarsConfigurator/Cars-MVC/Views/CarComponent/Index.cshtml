@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Dao.Models.CarComponent>
 @using Microsoft.AspNetCore.Mvc.Rendering
+
 @{
     ViewData["Title"] = "Popis komponenti";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,13 +12,17 @@
 
 <form method="get" class="mb-3">
     <input type="text" name="SearchTerm" value="@filter.SearchTerm" placeholder="Pretraži po imenu" class="form-control d-inline-block" style="width:200px" />
+    
     <select name="ComponentTypeId" class="form-control d-inline-block" style="width:200px">
-        <option value="">-- Vrsta --</option>
-        @foreach (var type in (List<SelectListItem>)ViewBag.ComponentTypes)
-        {
-            <option value="@type.Value" selected="@(type.Value == filter.ComponentTypeId?.ToString() ? "selected" : null)">@type.Text</option>
-        }
-    </select>
+    <option value="">-- Vrsta --</option>
+    @foreach (var type in (List<SelectListItem>)ViewBag.ComponentTypes)
+    {
+        var selected = type.Value == filter.ComponentTypeId?.ToString() ? "selected" : "";
+        <option value="@type.Value" selected>@type.Text</option>
+    }
+</select>
+
+
     <button type="submit" class="btn btn-primary">Pretraži</button>
 </form>
 
@@ -40,7 +45,16 @@
             <td>@item.Name</td>
             <td>@item.Description</td>
             <td>@item.ComponentType?.Name</td>
-            <td><img src="@item.ImagePath" alt="Nema slike" width="100" /></td>
+            <td>
+                @if (!string.IsNullOrEmpty(item.ImagePath))
+                {
+                    <img src="@item.ImagePath" alt="Slika" width="100" />
+                }
+                else
+                {
+                    <span>Nema slike</span>
+                }
+            </td>
             <td>
                 @Html.ActionLink("Uredi", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Detalji", "Details", new { id = item.Id }) |
