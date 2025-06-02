@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Dao.Models.CarComponentCompatibility>
+
+@{
+    ViewData["Title"] = "Kompatibilnosti komponenti";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kompatibilnosti komponenti</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">➕ Dodaj kompatibilnost</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Komponenta A</th>
+            <th>Komponenta B</th>
+            <th>Akcije</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CarComponentId1Navigation?.Name</td>
+                <td>@item.CarComponentId2Navigation?.Name</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Obriši</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

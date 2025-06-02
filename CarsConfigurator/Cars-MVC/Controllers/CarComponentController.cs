@@ -19,7 +19,6 @@ namespace Cars_MVC.Controllers
         public async Task<IActionResult> Index(CarComponentFilterViewModel filter)
         {
             int pageSize = 10;
-
             var query = _context.CarComponents.Include(c => c.ComponentType).AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(filter.SearchTerm))
@@ -61,35 +60,41 @@ namespace Cars_MVC.Controllers
         // GET: CarComponent/Create
         public IActionResult Create()
         {
-            ViewData["ComponentTypeId"] = new SelectList(_context.ComponentTypes, "Id", "Name");
+            ViewBag.ComponentTypes = new SelectList(_context.ComponentTypes.ToList(), "Id", "Name");
             return View();
         }
 
         // POST: CarComponent/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CarComponent component, IFormFile? file)
+        public async Task<IActionResult> Create(CarComponentUploadViewModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                if (file != null && file.Length > 0)
-                {
-                    var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
-                    var path = Path.Combine("wwwroot/uploads", fileName);
-                    using (var stream = new FileStream(path, FileMode.Create))
-                    {
-                        await file.CopyToAsync(stream);
-                    }
-                    component.ImagePath = "/uploads/" + fileName;
-                }
-
-                _context.Add(component);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ViewBag.ComponentTypes = new SelectList(_context.ComponentTypes.ToList(), "Id", "Name", model.ComponentTypeId);
+                return View(model);
             }
 
-            ViewData["ComponentTypeId"] = new SelectList(_context.ComponentTypes, "Id", "Name", component.ComponentTypeId);
-            return View(component);
+            var component = new CarComponent
+            {
+                Name = model.Name,
+                Description = model.Description,
+                ComponentTypeId = model.ComponentTypeId
+            };
+
+            if (model.Image != null && model.Image.Length > 0)
+            {
+                var fileName = Guid.NewGuid() + Path.GetExtension(model.Image.FileName);
+                var path = Path.Combine("wwwroot/uploads", fileName);
+                using (var stream = new FileStream(path, FileMode.Create))
+                    await model.Image.CopyToAsync(stream);
+
+                component.ImagePath = "/uploads/" + fileName;
+            }
+
+            _context.CarComponents.Add(component);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: CarComponent/Edit/5
@@ -100,47 +105,53 @@ namespace Cars_MVC.Controllers
             var component = await _context.CarComponents.FindAsync(id);
             if (component == null) return NotFound();
 
-            ViewData["ComponentTypeId"] = new SelectList(_context.ComponentTypes, "Id", "Name", component.ComponentTypeId);
-            return View(component);
+            var model = new CarComponentUploadViewModel
+            {
+                Name = component.Name,
+                Description = component.Description,
+                ComponentTypeId = component.ComponentTypeId
+            };
+
+            ViewBag.ComponentTypes = new SelectList(_context.ComponentTypes.ToList(), "Id", "Name", component.ComponentTypeId);
+            ViewBag.ComponentId = component.Id;
+            ViewBag.ExistingImage = component.ImagePath;
+
+            return View(model);
         }
 
         // POST: CarComponent/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, CarComponent component, IFormFile? file)
+        public async Task<IActionResult> Edit(int id, CarComponentUploadViewModel model)
         {
-            if (id != component.Id) return NotFound();
+            var component = await _context.CarComponents.FindAsync(id);
+            if (component == null) return NotFound();
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                try
-                {
-                    if (file != null && file.Length > 0)
-                    {
-                        var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
-                        var path = Path.Combine("wwwroot/uploads", fileName);
-                        using (var stream = new FileStream(path, FileMode.Create))
-                        {
-                            await file.CopyToAsync(stream);
-                        }
-                        component.ImagePath = "/uploads/" + fileName;
-                    }
-
-                    _context.Update(component);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!_context.CarComponents.Any(e => e.Id == id))
-                        return NotFound();
-                    else throw;
-                }
-
-                return RedirectToAction(nameof(Index));
+                ViewBag.ComponentTypes = new SelectList(_context.ComponentTypes.ToList(), "Id", "Name", model.ComponentTypeId);
+                ViewBag.ComponentId = id;
+                ViewBag.ExistingImage = component.ImagePath;
+                return View(model);
             }
 
-            ViewData["ComponentTypeId"] = new SelectList(_context.ComponentTypes, "Id", "Name", component.ComponentTypeId);
-            return View(component);
+            component.Name = model.Name;
+            component.Description = model.Description;
+            component.ComponentTypeId = model.ComponentTypeId;
+
+            if (model.Image != null && model.Image.Length > 0)
+            {
+                var fileName = Guid.NewGuid() + Path.GetExtension(model.Image.FileName);
+                var path = Path.Combine("wwwroot/uploads", fileName);
+                using (var stream = new FileStream(path, FileMode.Create))
+                    await model.Image.CopyToAsync(stream);
+
+                component.ImagePath = "/uploads/" + fileName;
+            }
+
+            _context.Update(component);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: CarComponent/Delete/5

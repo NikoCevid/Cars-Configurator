@@ -1,4 +1,4 @@
-﻿@model Dao.Models.CarComponent
+﻿@model Cars_MVC.Models.CarComponentUploadViewModel
 
 @{
     ViewData["Title"] = "Dodaj komponentu";
@@ -22,13 +22,14 @@
 
     <div class="form-group">
         <label asp-for="ComponentTypeId" class="control-label">Vrsta komponente</label>
-        <select asp-for="ComponentTypeId" asp-items="ViewBag.ComponentTypeId" class="form-control"></select>
+        <select asp-for="ComponentTypeId" asp-items="ViewBag.ComponentTypes" class="form-control"></select>
         <span asp-validation-for="ComponentTypeId" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label>Slika komponente</label>
-        <input type="file" name="file" class="form-control-file" />
+        <input type="file" asp-for="Image" class="form-control-file" />
+        <span asp-validation-for="Image" class="text-danger"></span>
     </div>
 
     <div class="form-group mt-3">

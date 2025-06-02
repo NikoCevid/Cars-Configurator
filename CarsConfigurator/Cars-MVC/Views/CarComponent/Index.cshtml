@@ -1,81 +1,69 @@
 ﻿@model IEnumerable<Dao.Models.CarComponent>
 @using Microsoft.AspNetCore.Mvc.Rendering
-
 @{
     ViewData["Title"] = "Popis komponenti";
-    Layout = "~/Views/Shared/_Layout.cshtml";
     var filter = (Cars_MVC.Models.CarComponentFilterViewModel)ViewBag.Filter;
     var totalPages = (int)ViewBag.TotalPages;
 }
 
-<h2>Popis komponenti</h2>
+<h2 class="mb-4">Popis komponenti</h2>
 
-<form method="get" class="mb-3">
-    <input type="text" name="SearchTerm" value="@filter.SearchTerm" placeholder="Pretraži po imenu" class="form-control d-inline-block" style="width:200px" />
-    
-    <select name="ComponentTypeId" class="form-control d-inline-block" style="width:200px">
-    <option value="">-- Vrsta --</option>
-    @foreach (var type in (List<SelectListItem>)ViewBag.ComponentTypes)
-    {
-        var selected = type.Value == filter.ComponentTypeId?.ToString() ? "selected" : "";
-        <option value="@type.Value" selected>@type.Text</option>
-    }
-</select>
+<div class="mb-3">
+    <a asp-action="Create" class="btn btn-success">➕ Dodaj novu komponentu</a>
+</div>
 
 
-    <button type="submit" class="btn btn-primary">Pretraži</button>
+<form method="get" class="row mb-3">
+    <div class="col-md-5">
+        <input type="text" name="SearchTerm" value="@filter.SearchTerm" class="form-control" placeholder="Pretraži po nazivu..." />
+    </div>
+    <div class="col-md-4">
+        <select name="ComponentTypeId" class="form-select">
+            <option value="">-- Vrsta --</option>
+            @foreach (var type in (List<SelectListItem>)ViewBag.ComponentTypes)
+            {
+                <option value="@type.Value" selected>@type.Text</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-3">
+        <button type="submit" class="btn btn-primary w-100">Pretraži</button>
+    </div>
 </form>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Naziv</th>
-            <th>Opis</th>
-            <th>Vrsta</th>
-            <th>Slika</th>
-            <th>Akcije</th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.Id</td>
-            <td>@item.Name</td>
-            <td>@item.Description</td>
-            <td>@item.ComponentType?.Name</td>
-            <td>
-                @if (!string.IsNullOrEmpty(item.ImagePath))
-                {
-                    <img src="@item.ImagePath" alt="Slika" width="100" />
-                }
-                else
-                {
-                    <span>Nema slike</span>
-                }
-            </td>
-            <td>
-                @Html.ActionLink("Uredi", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Detalji", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Obriši", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
-
-@if (totalPages > 1)
+@if (!Model.Any())
 {
-    <nav>
-        <ul class="pagination">
+    <p>Nema pronađenih rezultata.</p>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="@item.ImagePath" class="card-img-top" alt="Slika" style="object-fit: cover; height: 200px;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">@item.Description</p>
+                        <span class="badge bg-secondary">@item.ComponentType?.Name</span>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a class="btn btn-sm btn-outline-primary" asp-action="Details" asp-route-id="@item.Id">Detalji</a>
+                        <a class="btn btn-sm btn-outline-warning" asp-action="Edit" asp-route-id="@item.Id">Uredi</a>
+                        <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Obriši</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <nav class="mt-4">
+        <ul class="pagination justify-content-center">
             @for (int i = 1; i <= totalPages; i++)
             {
                 <li class="page-item @(i == filter.Page ? "active" : "")">
-                    <a class="page-link"
-                       href="?SearchTerm=@filter.SearchTerm@(filter.ComponentTypeId.HasValue ? $"&ComponentTypeId={filter.ComponentTypeId}" : "")&Page=@i">
-                        @i
-                    </a>
+                    <a class="page-link" href="?SearchTerm=@filter.SearchTerm@(filter.ComponentTypeId.HasValue ? $"&ComponentTypeId={filter.ComponentTypeId}" : "")&Page=@i">@i</a>
                 </li>
             }
         </ul>

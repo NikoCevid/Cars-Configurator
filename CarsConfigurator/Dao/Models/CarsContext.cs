@@ -43,14 +43,18 @@ public partial class CarsContext : DbContext
 
         modelBuilder.Entity<CarComponentCompatibility>(entity =>
         {
-            entity.HasOne(d => d.CarComponentId1Navigation).WithMany(p => p.CarComponentCompatibilityCarComponentId1Navigations)
+            entity.HasOne(d => d.CarComponentId1Navigation)
+                .WithMany(p => p.CarComponentCompatibilityCarComponentId1Navigations)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_CarComponentCompatibility_CarComponent1");
 
-            entity.HasOne(d => d.CarComponentId2Navigation).WithMany(p => p.CarComponentCompatibilityCarComponentId2Navigations)
+            entity.HasOne(d => d.CarComponentId2Navigation)
+                .WithMany(p => p.CarComponentCompatibilityCarComponentId2Navigations)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_CarComponentCompatibility_CarComponent2");
         });
+
+
 
         modelBuilder.Entity<Configuration>(entity =>
         {
