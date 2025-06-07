@@ -1,4 +1,5 @@
-﻿using Dao.Models;
+﻿using Cars_MVC.Models;
+using Dao.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -118,5 +119,28 @@ namespace Cars_MVC.Controllers
 
             return View(user);
         }
+
+        // GET: Admin/UserConfigurations
+        public async Task<IActionResult> UserConfigurations()
+        {
+            var data = await _context.Users
+                .Include(u => u.Configurations)
+                    .ThenInclude(c => c.ConfigurationCarComponents)
+                    .ThenInclude(cc => cc.CarComponent)
+                .ToListAsync();
+
+            var result = data.Select(u => new UserConfigurationDTO
+            {
+                Username = u.Username,
+                ComponentNames = u.Configurations
+                    .SelectMany(conf => conf.ConfigurationCarComponents)
+                    .Select(cc => cc.CarComponent.Name)
+                    .Distinct()
+                    .ToList()
+            }).ToList();
+
+            return View(result);
+        }
+
     }
 }

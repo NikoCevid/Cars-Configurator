@@ -35,7 +35,10 @@ namespace Cars_MVC.Controllers
                 return View(model);
             }
 
-            var salt = Guid.NewGuid().ToString();
+            //Generira se nasumični salt
+            var salt = Guid.NewGuid().ToString(); // Generira random salt
+
+            //Kreira se hash kombinacijom lozinke + salt, koristi se Base64 encoding
             var hash = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(model.Password + salt));
 
             var user = new User
@@ -47,7 +50,7 @@ namespace Cars_MVC.Controllers
                 Phone = model.Phone,
                 PwdSalt = salt,
                 PwdHash = hash,
-                Role = "user"
+                Role = "user" // korisnik po defaultu nije admin
             };
 
             _context.Users.Add(user);

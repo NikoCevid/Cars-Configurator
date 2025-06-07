@@ -25,12 +25,32 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark fw-bold" asp-controller="Admin" asp-action="Index">🛠 Admin Panel</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="CarComponent" asp-action="Index">Komponente</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="ComponentCompatibility" asp-action="Index">Kompatibilnosti</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="ComponentType" asp-action="Index">Tipovi komponenti</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Admin" asp-action="UserConfigurations">Konfiguracije korisnika</a>
+                            </li>
+                        }
                     </ul>
 
                     <div class="d-flex align-items-center">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <span class="me-3">👋 Dobrodošao, <strong>@User.Identity.Name</strong></span>
+                            <p>Uloga: <strong>@(User.IsInRole("Admin") ? "Admin" : "Korisnik")</strong></p>
+                            <span class="me-3">Dobrodošao, <strong>@User.Identity.Name</strong></span>
                             <form asp-controller="Auth" asp-action="Logout" method="post" class="d-inline">
                                 <button type="submit" class="btn btn-sm btn-outline-danger">Odjava</button>
                             </form>

@@ -27,7 +27,6 @@ C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\obj\Debug\net8.0\sta
 C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Cars-MVC.props
 C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Cars-MVC.props
 C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\obj\Debug\net8.0\Cars-MVC.dll
 C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\obj\Debug\net8.0\refint\Cars-MVC.dll
 C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\obj\Debug\net8.0\Cars-MVC.pdb
@@ -259,8 +258,4 @@ C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\bin\Debug\net8.0\run
 C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
-C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
-C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\bin\Debug\net8.0\System.ClientModel.dll
+C:\Users\User\Desktop\RWA PROJEKT\CarsConfigurator\Cars-MVC\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

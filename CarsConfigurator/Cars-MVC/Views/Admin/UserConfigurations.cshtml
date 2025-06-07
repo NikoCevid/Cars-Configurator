@@ -1,0 +1,25 @@
+﻿@model List<Cars_MVC.Models.UserConfigurationDTO>
+
+@{
+    ViewBag.Title = "Korisnici i njihove konfiguracije";
+}
+
+<h2>Korisnici i njihove konfiguracije</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Korisničko ime</th>
+            <th>Komponente</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@string.Join(", ", user.ComponentNames)</td>
+            </tr>
+        }
+    </tbody>
+</table>

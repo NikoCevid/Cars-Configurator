@@ -77,8 +77,8 @@
     </div>
 
     <script>
-        //const token = localStorage.getItem("token");
-        //if (!token) window.location.href = "/html/login.html";
+        const token = localStorage.getItem("token");
+      if (!token) window.location.href = "/html/login.html";
 
         async function loadLogs() {
             const count = document.getElementById("countSelect").value;

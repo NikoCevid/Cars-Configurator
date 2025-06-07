@@ -47,9 +47,12 @@ CREATE TABLE [dbo].[User]
 GO
 ALTER TABLE [User]
 ADD
-    [Username] NVARCHAR(100) NOT NULL DEFAULT '',
     [Role] NVARCHAR(100) NOT NULL DEFAULT 'User';
 
+
+	UPDATE [User]
+SET Role = 'Admin'
+WHERE Username = 'ncevid@algebra.hr';
 
 select * from [User]
 
@@ -71,6 +74,7 @@ alter TABLE [dbo].[User](
   )
 )
 
+select * from [User]
 -- Configuration (the car configuration made by a user)
 CREATE TABLE [dbo].[Configuration](
     [Id] INT IDENTITY(1,1) NOT NULL,

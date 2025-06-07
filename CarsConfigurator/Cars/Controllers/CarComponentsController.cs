@@ -3,6 +3,7 @@ using Cars.DTO;
 using Cars.Services.Interfaces;
 using Dao.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cars.Controllers
 {
@@ -57,5 +58,8 @@ namespace Cars.Controllers
             await _service.DeleteAsync(id);
             return Ok();
         }
+
+       
+
     }
 }
