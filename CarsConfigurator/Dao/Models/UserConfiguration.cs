@@ -12,6 +12,9 @@ public class UserConfiguration
     public int UserId { get; set; }
     public int CarComponentId { get; set; }
 
+   
+
+
     [ForeignKey("UserId")]
     public virtual User User { get; set; } = null!;
 

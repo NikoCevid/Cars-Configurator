@@ -4,6 +4,8 @@
     {
         public string Username { get; set; } = string.Empty;
         public List<string> ComponentNames { get; set; } = new();
+
+        public DateTime? LastConfigurationDate { get; set; }
     }
 
 }

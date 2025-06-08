@@ -1,0 +1,30 @@
+﻿@model List<Dao.Models.CarComponent>
+@{
+    ViewData["Title"] = "Konfigurator";
+    var types = ViewBag.ComponentTypes as List<Dao.Models.ComponentType>;
+}
+
+<h2>Odaberi komponente</h2>
+
+<form asp-action="Save" method="post">
+    <div class="row">
+        @foreach (var type in types)
+        {
+            <h3 class="mt-3">@type.Name</h3>
+            @foreach (var comp in Model.Where(c => c.ComponentTypeId == type.Id))
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="@comp.ImagePath" class="card-img-top" style="height: 200px; object-fit: cover;" />
+                        <div class="card-body">
+                            <h5 class="card-title">@comp.Name</h5>
+                            <p class="card-text">@comp.Description</p>
+                            <input type="checkbox" name="componentIds" value="@comp.Id" /> Dodaj u konfiguraciju
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <button type="submit" class="btn btn-success mt-3">Spremi konfiguraciju</button>
+</form>

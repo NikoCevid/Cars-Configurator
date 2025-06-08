@@ -124,7 +124,7 @@ namespace Cars_MVC.Controllers
             var data = await _context.Users
                 .Include(u => u.Configurations)
                     .ThenInclude(c => c.ConfigurationCarComponents)
-                    .ThenInclude(cc => cc.CarComponent)
+                        .ThenInclude(cc => cc.CarComponent)
                 .ToListAsync();
 
             var result = data.Select(u => new UserConfigurationDTO
@@ -134,7 +134,10 @@ namespace Cars_MVC.Controllers
                     .SelectMany(conf => conf.ConfigurationCarComponents)
                     .Select(cc => cc.CarComponent.Name)
                     .Distinct()
-                    .ToList()
+                    .ToList(),
+                LastConfigurationDate = u.Configurations
+                    .OrderByDescending(c => c.Id)
+                    .FirstOrDefault()?.CreationDate
             }).ToList();
 
             return View(result);

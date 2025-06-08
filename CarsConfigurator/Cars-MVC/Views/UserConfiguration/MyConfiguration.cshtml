@@ -1,0 +1,40 @@
+﻿@model List<Dao.Models.CarComponent>
+@{
+    ViewData["Title"] = "Moja konfiguracija";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var configDate = ViewBag.ConfigDate as DateTime?;
+}
+
+<h2>Moje odabrane komponente</h2>
+
+@if (configDate != null)
+{
+    <p><strong>Datum spremanja:</strong> @configDate?.ToString("dd.MM.yyyy. HH:mm")</p>
+}
+
+@if (Model.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Naziv</th>
+                <th>Opis</th>
+                <th>Vrsta</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.Name</td>
+                    <td>@c.Description</td>
+                    <td>@c.ComponentType?.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p><em>Još niste spremili nijednu konfiguraciju.</em></p>
+}

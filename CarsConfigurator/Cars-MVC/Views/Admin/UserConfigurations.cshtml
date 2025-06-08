@@ -1,16 +1,18 @@
 ﻿@model List<Cars_MVC.Models.UserConfigurationDTO>
 
 @{
-    ViewBag.Title = "Korisnici i njihove konfiguracije";
+    ViewData["Title"] = "Konfiguracije korisnika";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Korisnici i njihove konfiguracije</h2>
+<h2>Konfiguracije korisnika</h2>
 
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>Korisničko ime</th>
+            <th>Korisnik</th>
             <th>Komponente</th>
+            <th>Datum konfiguracije</th>
         </tr>
     </thead>
     <tbody>
@@ -18,7 +20,24 @@
         {
             <tr>
                 <td>@user.Username</td>
-                <td>@string.Join(", ", user.ComponentNames)</td>
+                <td>
+                    @if (user.ComponentNames.Any())
+                    {
+                        <ul>
+                            @foreach (var comp in user.ComponentNames)
+                            {
+                                <li>@comp</li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <i>Nema spremljenih komponenti</i>
+                    }
+                </td>
+                <td>
+                    @user.LastConfigurationDate?.ToString("dd.MM.yyyy. HH:mm") ?? "—"
+                </td>
             </tr>
         }
     </tbody>
