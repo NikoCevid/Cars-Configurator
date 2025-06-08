@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
 namespace Dao.Models;
 
@@ -12,8 +9,10 @@ public partial class CarComponentCompatibility
     [Key]
     public int Id { get; set; }
 
+    [Required(ErrorMessage = "Odaberi prvu komponentu.")]
     public int CarComponentId1 { get; set; }
 
+    [Required(ErrorMessage = "Odaberi drugu komponentu.")]
     public int CarComponentId2 { get; set; }
 
     [ForeignKey("CarComponentId1")]

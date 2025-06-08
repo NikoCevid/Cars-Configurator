@@ -257,8 +257,24 @@
       "PackagePath": "staticwebassets\\uploads\\83a1e27d-ad5d-4941-acbc-52e3abab4b4c.jpeg"
     },
     {
+      "Id": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\bf7719a3-dfed-452f-868b-c9b2ea5867c4.avif",
+      "PackagePath": "staticwebassets\\uploads\\bf7719a3-dfed-452f-868b-c9b2ea5867c4.avif"
+    },
+    {
       "Id": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\edf26a5e-0ac2-4343-8ce5-e4df31532d8b.jpg",
       "PackagePath": "staticwebassets\\uploads\\edf26a5e-0ac2-4343-8ce5-e4df31532d8b.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\f0a6afe4-58c7-43aa-a014-a6e9274f4bc0.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\f0a6afe4-58c7-43aa-a014-a6e9274f4bc0.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\fa0839de-c168-4243-9ea9-2c792a2b78f9.jpg",
+      "PackagePath": "staticwebassets\\uploads\\fa0839de-c168-4243-9ea9-2c792a2b78f9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\fe1433c8-5357-4567-a708-23a1a9e8b7bf.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\fe1433c8-5357-4567-a708-23a1a9e8b7bf.jpeg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Cars-MVC.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

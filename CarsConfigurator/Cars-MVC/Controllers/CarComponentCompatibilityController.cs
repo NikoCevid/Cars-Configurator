@@ -14,41 +14,38 @@ namespace Cars_MVC.Controllers
             _context = context;
         }
 
-        // GET: CarComponentCompatibility
         public async Task<IActionResult> Index()
         {
             var list = await _context.CarComponentCompatibilities
-              .Include(c => c.CarComponentId1Navigation)
-.   Include(c => c.CarComponentId2Navigation)
+                .Include(x => x.CarComponentId1Navigation)
+                .Include(x => x.CarComponentId2Navigation)
                 .ToListAsync();
 
             return View(list);
         }
 
-        // GET: CarComponentCompatibility/Create
         public IActionResult Create()
         {
             ViewBag.Components = new SelectList(_context.CarComponents, "Id", "Name");
             return View();
         }
 
-        // POST: CarComponentCompatibility/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CarComponentCompatibility model)
         {
-            if (ModelState.IsValid && model.CarComponentId1Navigation != model.CarComponentId2Navigation)
+            if (ModelState.IsValid && model.CarComponentId1 != model.CarComponentId2)
             {
                 _context.CarComponentCompatibilities.Add(model);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
+            ModelState.AddModelError(string.Empty, "Ne možete odabrati istu komponentu za A i B.");
             ViewBag.Components = new SelectList(_context.CarComponents, "Id", "Name");
             return View(model);
         }
 
-        // GET: CarComponentCompatibility/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -63,7 +60,6 @@ namespace Cars_MVC.Controllers
             return View(compatibility);
         }
 
-        // POST: CarComponentCompatibility/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -9,14 +9,22 @@
 
 <form asp-action="Create" method="post">
     <div class="form-group">
-        <label for="CarComponentId1">Komponenta A</label>
+        <label asp-for="CarComponentId1" class="control-label"></label>
         <select asp-for="CarComponentId1" asp-items="ViewBag.Components" class="form-control"></select>
+        <span asp-validation-for="CarComponentId1" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label for="CarComponentId2">Komponenta B</label>
+        <label asp-for="CarComponentId2" class="control-label"></label>
         <select asp-for="CarComponentId2" asp-items="ViewBag.Components" class="form-control"></select>
+        <span asp-validation-for="CarComponentId2" class="text-danger"></span>
     </div>
     <br />
     <button type="submit" class="btn btn-primary">Spremi</button>
     <a asp-action="Index" class="btn btn-secondary">Natrag</a>
 </form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

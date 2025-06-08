@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "D+vCdnRmOEDWhIfB7SnQO1sVTtGQmtbMRW2SXkjYrhw=",
+  "Hash": "7OzqOsQVeVuwX26e0I73zgZUjYvixAzPLtakbFQGQ6o=",
   "Source": "Cars-MVC",
   "BasePath": "_content/Cars-MVC",
   "Mode": "Default",
@@ -1382,6 +1382,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\83a1e27d-ad5d-4941-acbc-52e3abab4b4c.jpeg"
     },
     {
+      "Identity": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\bf7719a3-dfed-452f-868b-c9b2ea5867c4.avif",
+      "SourceId": "Cars-MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\",
+      "BasePath": "_content/Cars-MVC",
+      "RelativePath": "uploads/bf7719a3-dfed-452f-868b-c9b2ea5867c4#[.{fingerprint}]?.avif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "4qsfq8d94y",
+      "Integrity": "1DaVsLZOXbC260duTw+G84TBZxUpBfI3PwYKN30aBGY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\bf7719a3-dfed-452f-868b-c9b2ea5867c4.avif"
+    },
+    {
       "Identity": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\edf26a5e-0ac2-4343-8ce5-e4df31532d8b.jpg",
       "SourceId": "Cars-MVC",
       "SourceType": "Discovered",
@@ -1401,6 +1422,69 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\edf26a5e-0ac2-4343-8ce5-e4df31532d8b.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\f0a6afe4-58c7-43aa-a014-a6e9274f4bc0.jpeg",
+      "SourceId": "Cars-MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\",
+      "BasePath": "_content/Cars-MVC",
+      "RelativePath": "uploads/f0a6afe4-58c7-43aa-a014-a6e9274f4bc0#[.{fingerprint}]?.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "0os5a8fdn2",
+      "Integrity": "YLojJ+oJYsNlYPs3iC+OY2GvJQCz7usda5GYKCQLf58=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\f0a6afe4-58c7-43aa-a014-a6e9274f4bc0.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\fa0839de-c168-4243-9ea9-2c792a2b78f9.jpg",
+      "SourceId": "Cars-MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\",
+      "BasePath": "_content/Cars-MVC",
+      "RelativePath": "uploads/fa0839de-c168-4243-9ea9-2c792a2b78f9#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "s9vehpvhbx",
+      "Integrity": "0HosBipmaPIlD004hm0zgt7xyGoHRiz7hqWk2Ww/+2c=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\fa0839de-c168-4243-9ea9-2c792a2b78f9.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\fe1433c8-5357-4567-a708-23a1a9e8b7bf.jpeg",
+      "SourceId": "Cars-MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\",
+      "BasePath": "_content/Cars-MVC",
+      "RelativePath": "uploads/fe1433c8-5357-4567-a708-23a1a9e8b7bf#[.{fingerprint}]?.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "g0ah0r61lo",
+      "Integrity": "8Dj57DpXAKkcQlVHlG7ssbC4usHBfCqhrYMbrsN926Q=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\fe1433c8-5357-4567-a708-23a1a9e8b7bf.jpeg"
     }
   ],
   "Endpoints": [
@@ -6735,6 +6819,88 @@
       ]
     },
     {
+      "Route": "uploads/bf7719a3-dfed-452f-868b-c9b2ea5867c4.4qsfq8d94y.avif",
+      "AssetFile": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\bf7719a3-dfed-452f-868b-c9b2ea5867c4.avif",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "63454"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1DaVsLZOXbC260duTw+G84TBZxUpBfI3PwYKN30aBGY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 08 Jun 2025 12:44:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4qsfq8d94y"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/bf7719a3-dfed-452f-868b-c9b2ea5867c4.avif"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1DaVsLZOXbC260duTw+G84TBZxUpBfI3PwYKN30aBGY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/bf7719a3-dfed-452f-868b-c9b2ea5867c4.avif",
+      "AssetFile": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\bf7719a3-dfed-452f-868b-c9b2ea5867c4.avif",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "63454"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1DaVsLZOXbC260duTw+G84TBZxUpBfI3PwYKN30aBGY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 08 Jun 2025 12:44:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1DaVsLZOXbC260duTw+G84TBZxUpBfI3PwYKN30aBGY="
+        }
+      ]
+    },
+    {
       "Route": "uploads/edf26a5e-0ac2-4343-8ce5-e4df31532d8b.897xo0r7xp.jpg",
       "AssetFile": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\edf26a5e-0ac2-4343-8ce5-e4df31532d8b.jpg",
       "Selectors": [],
@@ -6813,6 +6979,252 @@
         {
           "Name": "integrity",
           "Value": "sha256-/Cpec4IM+Dc1jRXaNgqDz/uM0mgwlwbzRvDXndwxNXA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/f0a6afe4-58c7-43aa-a014-a6e9274f4bc0.0os5a8fdn2.jpeg",
+      "AssetFile": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\f0a6afe4-58c7-43aa-a014-a6e9274f4bc0.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "349080"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YLojJ+oJYsNlYPs3iC+OY2GvJQCz7usda5GYKCQLf58=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 08 Jun 2025 12:47:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0os5a8fdn2"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/f0a6afe4-58c7-43aa-a014-a6e9274f4bc0.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YLojJ+oJYsNlYPs3iC+OY2GvJQCz7usda5GYKCQLf58="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/f0a6afe4-58c7-43aa-a014-a6e9274f4bc0.jpeg",
+      "AssetFile": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\f0a6afe4-58c7-43aa-a014-a6e9274f4bc0.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "349080"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YLojJ+oJYsNlYPs3iC+OY2GvJQCz7usda5GYKCQLf58=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 08 Jun 2025 12:47:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YLojJ+oJYsNlYPs3iC+OY2GvJQCz7usda5GYKCQLf58="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/fa0839de-c168-4243-9ea9-2c792a2b78f9.jpg",
+      "AssetFile": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\fa0839de-c168-4243-9ea9-2c792a2b78f9.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "31627"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0HosBipmaPIlD004hm0zgt7xyGoHRiz7hqWk2Ww/+2c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 08 Jun 2025 12:49:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0HosBipmaPIlD004hm0zgt7xyGoHRiz7hqWk2Ww/+2c="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/fa0839de-c168-4243-9ea9-2c792a2b78f9.s9vehpvhbx.jpg",
+      "AssetFile": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\fa0839de-c168-4243-9ea9-2c792a2b78f9.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "31627"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0HosBipmaPIlD004hm0zgt7xyGoHRiz7hqWk2Ww/+2c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 08 Jun 2025 12:49:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s9vehpvhbx"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/fa0839de-c168-4243-9ea9-2c792a2b78f9.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0HosBipmaPIlD004hm0zgt7xyGoHRiz7hqWk2Ww/+2c="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/fe1433c8-5357-4567-a708-23a1a9e8b7bf.g0ah0r61lo.jpeg",
+      "AssetFile": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\fe1433c8-5357-4567-a708-23a1a9e8b7bf.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1635122"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8Dj57DpXAKkcQlVHlG7ssbC4usHBfCqhrYMbrsN926Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 08 Jun 2025 12:46:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g0ah0r61lo"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/fe1433c8-5357-4567-a708-23a1a9e8b7bf.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8Dj57DpXAKkcQlVHlG7ssbC4usHBfCqhrYMbrsN926Q="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/fe1433c8-5357-4567-a708-23a1a9e8b7bf.jpeg",
+      "AssetFile": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars-MVC\\wwwroot\\uploads\\fe1433c8-5357-4567-a708-23a1a9e8b7bf.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1635122"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8Dj57DpXAKkcQlVHlG7ssbC4usHBfCqhrYMbrsN926Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 08 Jun 2025 12:46:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8Dj57DpXAKkcQlVHlG7ssbC4usHBfCqhrYMbrsN926Q="
         }
       ]
     }

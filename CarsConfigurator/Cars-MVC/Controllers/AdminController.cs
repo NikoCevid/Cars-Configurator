@@ -34,16 +34,20 @@ namespace Cars_MVC.Controllers
             ViewBag.TotalPages = (int)Math.Ceiling((double)await query.CountAsync() / pageSize);
 
             var users = await query.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
-            return View(users);
+
+            var viewModel = new AdminUserListViewModel
+            {
+                Users = users
+            };
+
+            return View(viewModel);
         }
 
-        // GET: Admin/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(User user)
@@ -57,7 +61,6 @@ namespace Cars_MVC.Controllers
             return View(user);
         }
 
-        // GET: Admin/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -68,7 +71,6 @@ namespace Cars_MVC.Controllers
             return View(user);
         }
 
-        // POST: Admin/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, User user)
@@ -84,7 +86,6 @@ namespace Cars_MVC.Controllers
             return View(user);
         }
 
-        // GET: Admin/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -95,7 +96,6 @@ namespace Cars_MVC.Controllers
             return View(user);
         }
 
-        // POST: Admin/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -109,7 +109,6 @@ namespace Cars_MVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: Admin/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
@@ -120,7 +119,6 @@ namespace Cars_MVC.Controllers
             return View(user);
         }
 
-        // GET: Admin/UserConfigurations
         public async Task<IActionResult> UserConfigurations()
         {
             var data = await _context.Users
@@ -141,6 +139,5 @@ namespace Cars_MVC.Controllers
 
             return View(result);
         }
-
     }
 }

@@ -1,30 +1,12 @@
 ﻿@model Dao.Models.User
 
-@{
-    ViewData["Title"] = "Obriši korisnika";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
 <h2>Obriši korisnika</h2>
 
 <div class="alert alert-warning">
-    <strong>Upozorenje:</strong> Sigurno želiš obrisati korisnika <strong>@Model.Username</strong>?
+    <p>Jeste li sigurni da želite obrisati korisnika <strong>@Model.Username</strong>?</p>
 </div>
 
-<div>
-    <dl class="row">
-        <dt class="col-sm-3">Ime i prezime</dt>
-        <dd class="col-sm-9">@Model.FirstName @Model.LastName</dd>
-
-        <dt class="col-sm-3">Email</dt>
-        <dd class="col-sm-9">@Model.Email</dd>
-
-        <dt class="col-sm-3">Uloga</dt>
-        <dd class="col-sm-9">@Model.Role</dd>
-    </dl>
-</div>
-
-<form asp-action="DeleteConfirmed">
+<form asp-action="Delete" method="post">
     <input type="hidden" asp-for="Id" />
     <button type="submit" class="btn btn-danger">Obriši</button>
     <a asp-action="Index" class="btn btn-secondary">Odustani</a>
