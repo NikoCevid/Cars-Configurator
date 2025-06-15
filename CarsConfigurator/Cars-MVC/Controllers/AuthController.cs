@@ -109,5 +109,8 @@ namespace Cars_MVC.Controllers
             await HttpContext.SignOutAsync("MyCookieAuth");
             return RedirectToAction(nameof(Login));
         }
+    
+    
+    
     }
 }

@@ -142,5 +142,35 @@ namespace Cars_MVC.Controllers
 
             return View(result);
         }
+
+        // GET: Admin/Profile
+        public async Task<IActionResult> Profile()
+        {
+            var username = User.Identity?.Name;
+            if (username == null) return RedirectToAction("Login", "Auth");
+
+            var admin = await _context.Users.FirstOrDefaultAsync(u => u.Username == username && u.Role == "Admin");
+            if (admin == null) return NotFound();
+
+            return View(admin);
+        }
+
+        // POST: Admin/UpdateProfile
+        [HttpPost]
+        public async Task<IActionResult> UpdateProfile([FromBody] User updatedUser)
+        {
+            var username = User.Identity?.Name;
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username && u.Role == "Admin");
+            if (user == null) return Json(new { success = false, message = "Admin not found." });
+
+            user.FirstName = updatedUser.FirstName;
+            user.LastName = updatedUser.LastName;
+            user.Email = updatedUser.Email;
+            user.Phone = updatedUser.Phone;
+
+            await _context.SaveChangesAsync();
+            return Json(new { success = true, message = "Profile updated successfully." });
+        }
+
     }
 }

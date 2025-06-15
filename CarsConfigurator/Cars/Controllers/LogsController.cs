@@ -24,7 +24,7 @@ namespace Cars.Controllers
         {
             if (n <= 0) return BadRequest("Broj zapisa mora biti veći od 0.");
 
-            var logs = _logService.GetLastNLogs(n);
+            var logs = _logService.GetLast(n);
             return Ok(logs);
         }
 
