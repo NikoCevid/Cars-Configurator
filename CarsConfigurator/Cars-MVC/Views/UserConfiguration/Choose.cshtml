@@ -15,7 +15,16 @@
             {
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <img src="@comp.ImagePath" class="card-img-top" style="height: 200px; object-fit: cover;" />
+                        @if (!string.IsNullOrEmpty(comp.ImageBase64))
+                        {
+                            <img src="data:image/png;base64,@comp.ImageBase64" class="card-img-top" style="height: 200px; object-fit: cover;" />
+                        }
+                        else
+                        {
+                            <div class="card-img-top bg-light text-muted d-flex align-items-center justify-content-center" style="height: 200px;">
+                                Nema slike
+                            </div>
+                        }
                         <div class="card-body">
                             <h5 class="card-title">@comp.Name</h5>
                             <p class="card-text">@comp.Description</p>

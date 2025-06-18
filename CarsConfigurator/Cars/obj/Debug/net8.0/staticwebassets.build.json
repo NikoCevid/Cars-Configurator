@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MINLkPWNHRXfR6gSMwEPF/EDmciSiytq89DlebRNCZw=",
+  "Hash": "uhxNO+Lc1QA8VRBvKls3vjRiGeI7PJ7tepaLqoIv/o8=",
   "Source": "Cars",
   "BasePath": "_content/Cars",
   "Mode": "Default",
@@ -57,6 +57,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\html\\logs.html"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\wwwroot\\logs.txt",
+      "SourceId": "Cars",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\wwwroot\\",
+      "BasePath": "_content/Cars",
+      "RelativePath": "logs#[.{fingerprint}]?.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "c9b7t5busb",
+      "Integrity": "wNXKKB71k6wNKBMM3CgdL9RgA/v/nkHFyMCedMYk6oU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\logs.txt"
     }
   ],
   "Endpoints": [
@@ -221,6 +242,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-R5e/1TgZigI+xSpnCluZHVZ1xOIlR66cH8Fsn2dOasc="
+        }
+      ]
+    },
+    {
+      "Route": "logs.c9b7t5busb.txt",
+      "AssetFile": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\wwwroot\\logs.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1052"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wNXKKB71k6wNKBMM3CgdL9RgA/v/nkHFyMCedMYk6oU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 15 Jun 2025 11:06:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "c9b7t5busb"
+        },
+        {
+          "Name": "label",
+          "Value": "logs.txt"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wNXKKB71k6wNKBMM3CgdL9RgA/v/nkHFyMCedMYk6oU="
+        }
+      ]
+    },
+    {
+      "Route": "logs.txt",
+      "AssetFile": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\wwwroot\\logs.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1052"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wNXKKB71k6wNKBMM3CgdL9RgA/v/nkHFyMCedMYk6oU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 15 Jun 2025 11:06:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wNXKKB71k6wNKBMM3CgdL9RgA/v/nkHFyMCedMYk6oU="
         }
       ]
     }

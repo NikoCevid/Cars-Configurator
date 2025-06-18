@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\html\\logs.html"
     },
     {
+      "Id": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\CarsConfigurator\\Cars\\wwwroot\\logs.txt",
+      "PackagePath": "staticwebassets\\logs.txt"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Cars.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },

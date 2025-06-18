@@ -17,10 +17,15 @@ CREATE TABLE [dbo].[CarComponent](
     [Name] NVARCHAR(256) NOT NULL,
     [Description] NVARCHAR(1024) NULL,
     [ComponentTypeId] INT NOT NULL, -- Foreign key to ComponentType
-    [ImagePath] NVARCHAR(512) NULL, -- Path for image of the component
+   
     CONSTRAINT [PK_CarComponent] PRIMARY KEY CLUSTERED ([Id] ASC)
 )
 GO
+
+ALTER TABLE [dbo].[CarComponent]
+ADD [ImageBase64] NVARCHAR(MAX) NULL;
+
+select * from [CarComponent]
 
 -- M:N: Self-referencing relationship between CarComponents (which parts are compatible with others)
 CREATE TABLE [dbo].[CarComponentCompatibility](

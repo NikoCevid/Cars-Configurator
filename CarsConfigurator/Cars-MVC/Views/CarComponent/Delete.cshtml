@@ -22,7 +22,14 @@
 
     <dt class="col-sm-3">Slika</dt>
     <dd class="col-sm-9">
-        <img src="@Model.ImagePath" alt="Nema slike" width="200" />
+        @if (!string.IsNullOrEmpty(Model.ImageBase64))
+        {
+            <img src="data:image/png;base64,@Model.ImageBase64" alt="Slika" width="200" />
+        }
+        else
+        {
+            <span>Nema slike</span>
+        }
     </dd>
 </dl>
 

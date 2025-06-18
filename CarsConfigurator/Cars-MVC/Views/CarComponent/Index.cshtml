@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Dao.Models.CarComponent>
 @using Microsoft.AspNetCore.Mvc.Rendering
+
 @{
     ViewData["Title"] = "Popis komponenti";
     var filter = (Cars_MVC.Models.CarComponentFilterViewModel)ViewBag.Filter;
@@ -12,19 +13,20 @@
     <a asp-action="Create" class="btn btn-success">➕ Dodaj novu komponentu</a>
 </div>
 
-
 <form method="get" class="row mb-3">
     <div class="col-md-5">
         <input type="text" name="SearchTerm" value="@filter.SearchTerm" class="form-control" placeholder="Pretraži po nazivu..." />
     </div>
     <div class="col-md-4">
-        <select name="ComponentTypeId" class="form-select">
-            <option value="">-- Vrsta --</option>
-            @foreach (var type in (List<SelectListItem>)ViewBag.ComponentTypes)
-            {
-                <option value="@type.Value" selected>@type.Text</option>
-            }
-        </select>
+      <select name="ComponentTypeId" class="form-select">
+    <option value="">-- Vrsta --</option>
+    @foreach (var type in (List<SelectListItem>)ViewBag.ComponentTypes)
+    {
+        var selected = filter.ComponentTypeId == int.Parse(type.Value) ? "selected" : "";
+        <option value="@type.Value" selected>@type.Text</option>
+    }
+</select>
+
     </div>
     <div class="col-md-3">
         <button type="submit" class="btn btn-primary w-100">Pretraži</button>
@@ -42,7 +44,20 @@ else
         {
             <div class="col">
                 <div class="card h-100 shadow-sm">
-                    <img src="@item.ImagePath" class="card-img-top" alt="Slika" style="object-fit: cover; height: 200px;" />
+
+                    @* Prikaz slike iz Base64 *@
+                    @if (!string.IsNullOrEmpty(item.ImageBase64))
+                    {
+                        <img src="data:image/png;base64,@item.ImageBase64"
+                             class="card-img-top"
+                             alt="Slika"
+                             style="object-fit: cover; height: 200px;" />
+                    }
+                    else
+                    {
+                        <div class="text-center py-5 bg-light text-muted">Nema slike</div>
+                    }
+
                     <div class="card-body">
                         <h5 class="card-title">@item.Name</h5>
                         <p class="card-text">@item.Description</p>
@@ -63,7 +78,10 @@ else
             @for (int i = 1; i <= totalPages; i++)
             {
                 <li class="page-item @(i == filter.Page ? "active" : "")">
-                    <a class="page-link" href="?SearchTerm=@filter.SearchTerm@(filter.ComponentTypeId.HasValue ? $"&ComponentTypeId={filter.ComponentTypeId}" : "")&Page=@i">@i</a>
+                    <a class="page-link"
+                       href="?SearchTerm=@filter.SearchTerm@(filter.ComponentTypeId.HasValue ? $"&ComponentTypeId={filter.ComponentTypeId}" : "")&Page=@i">
+                        @i
+                    </a>
                 </li>
             }
         </ul>

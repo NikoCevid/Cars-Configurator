@@ -12,5 +12,7 @@ namespace Cars_MVC.Models
         public int ComponentTypeId { get; set; }
 
         public IFormFile? Image { get; set; }
+
+        public string? ImageBase64 { get; set; }
     }
 }

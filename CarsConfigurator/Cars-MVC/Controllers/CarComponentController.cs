@@ -57,14 +57,13 @@ namespace Cars_MVC.Controllers
             return View(component);
         }
 
-        // GET: CarComponent/Create
+        // ✅ AŽURIRANO
         public IActionResult Create()
         {
             ViewBag.ComponentTypes = new SelectList(_context.ComponentTypes.ToList(), "Id", "Name");
-            return View();
+            return View(new CarComponentUploadViewModel());
         }
 
-        // POST: CarComponent/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CarComponentUploadViewModel model)
@@ -84,12 +83,12 @@ namespace Cars_MVC.Controllers
 
             if (model.Image != null && model.Image.Length > 0)
             {
-                var fileName = Guid.NewGuid() + Path.GetExtension(model.Image.FileName);
-                var path = Path.Combine("wwwroot/uploads", fileName);
-                using (var stream = new FileStream(path, FileMode.Create))
-                    await model.Image.CopyToAsync(stream);
-
-                component.ImagePath = "/uploads/" + fileName;
+                using (var ms = new MemoryStream())
+                {
+                    await model.Image.CopyToAsync(ms);
+                    byte[] imageBytes = ms.ToArray();
+                    component.ImageBase64 = Convert.ToBase64String(imageBytes);
+                }
             }
 
             _context.CarComponents.Add(component);
@@ -97,7 +96,6 @@ namespace Cars_MVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: CarComponent/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -114,12 +112,11 @@ namespace Cars_MVC.Controllers
 
             ViewBag.ComponentTypes = new SelectList(_context.ComponentTypes.ToList(), "Id", "Name", component.ComponentTypeId);
             ViewBag.ComponentId = component.Id;
-            ViewBag.ExistingImage = component.ImagePath;
+            ViewBag.ExistingImage = component.ImageBase64;
 
             return View(model);
         }
 
-        // POST: CarComponent/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, CarComponentUploadViewModel model)
@@ -131,7 +128,7 @@ namespace Cars_MVC.Controllers
             {
                 ViewBag.ComponentTypes = new SelectList(_context.ComponentTypes.ToList(), "Id", "Name", model.ComponentTypeId);
                 ViewBag.ComponentId = id;
-                ViewBag.ExistingImage = component.ImagePath;
+                ViewBag.ExistingImage = component.ImageBase64;
                 return View(model);
             }
 
@@ -141,12 +138,12 @@ namespace Cars_MVC.Controllers
 
             if (model.Image != null && model.Image.Length > 0)
             {
-                var fileName = Guid.NewGuid() + Path.GetExtension(model.Image.FileName);
-                var path = Path.Combine("wwwroot/uploads", fileName);
-                using (var stream = new FileStream(path, FileMode.Create))
-                    await model.Image.CopyToAsync(stream);
-
-                component.ImagePath = "/uploads/" + fileName;
+                using (var ms = new MemoryStream())
+                {
+                    await model.Image.CopyToAsync(ms);
+                    byte[] imageBytes = ms.ToArray();
+                    component.ImageBase64 = Convert.ToBase64String(imageBytes);
+                }
             }
 
             _context.Update(component);
@@ -154,7 +151,6 @@ namespace Cars_MVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: CarComponent/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -168,7 +164,6 @@ namespace Cars_MVC.Controllers
             return View(component);
         }
 
-        // POST: CarComponent/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

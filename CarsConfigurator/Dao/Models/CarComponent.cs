@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
 
 namespace Dao.Models;
@@ -21,8 +18,10 @@ public partial class CarComponent
 
     public int ComponentTypeId { get; set; }
 
-    [StringLength(512)]
-    public string? ImagePath { get; set; }
+    [Column(TypeName = "nvarchar(max)")]
+    public string? ImageBase64 { get; set; }
+
+
 
     [InverseProperty("CarComponentId1Navigation")]
     public virtual ICollection<CarComponentCompatibility> CarComponentCompatibilityCarComponentId1Navigations { get; set; } = new List<CarComponentCompatibility>();
