@@ -8,10 +8,10 @@
 <h2>Kompatibilnosti komponenti</h2>
 
 <p>
-    <a asp-action="Create" class="btn btn-success">➕ Dodaj kompatibilnost</a>
+    <a asp-action="Create" class="btn btn-primary">Dodaj novu kompatibilnost</a>
 </p>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Komponenta A</th>
@@ -26,7 +26,13 @@
                 <td>@item.CarComponentId1Navigation?.Name</td>
                 <td>@item.CarComponentId2Navigation?.Name</td>
                 <td>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Obriši</a>
+                    <a asp-action="Delete"
+                       asp-route-id1="@item.CarComponentId1"
+                       asp-route-id2="@item.CarComponentId2"
+                       class="btn btn-danger btn-sm"
+                       onclick="return confirm('Jeste li sigurni da želite obrisati ovu kompatibilnost?');">
+                        Obriši
+                    </a>
                 </td>
             </tr>
         }

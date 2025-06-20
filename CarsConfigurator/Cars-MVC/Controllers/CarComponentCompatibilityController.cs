@@ -26,7 +26,7 @@ namespace Cars_MVC.Controllers
 
         public IActionResult Create()
         {
-            ViewBag.Components = new SelectList(_context.CarComponents, "Id", "Name");
+            ViewBag.Components = new SelectList(_context.CarComponents.ToList(), "Id", "Name");
             return View();
         }
 
@@ -41,36 +41,45 @@ namespace Cars_MVC.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ModelState.AddModelError(string.Empty, "Ne možete odabrati istu komponentu za A i B.");
-            ViewBag.Components = new SelectList(_context.CarComponents, "Id", "Name");
+            ModelState.AddModelError(string.Empty, "Ne možete odabrati istu komponentu za obje strane.");
+            ViewBag.Components = new SelectList(_context.CarComponents.ToList(), "Id", "Name");
             return View(model);
         }
 
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id1, int id2)
         {
-            if (id == null) return NotFound();
-
-            var compatibility = await _context.CarComponentCompatibilities
+            var item = await _context.CarComponentCompatibilities
                 .Include(c => c.CarComponentId1Navigation)
                 .Include(c => c.CarComponentId2Navigation)
-                .FirstOrDefaultAsync(c => c.Id == id);
+                .FirstOrDefaultAsync(c => c.CarComponentId1 == id1 && c.CarComponentId2 == id2);
 
-            if (compatibility == null) return NotFound();
+            if (item == null)
+                return NotFound();
 
-            return View(compatibility);
+            _context.CarComponentCompatibilities.Remove(item);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult Configure()
         {
-            var compatibility = await _context.CarComponentCompatibilities.FindAsync(id);
-            if (compatibility != null)
-            {
-                _context.CarComponentCompatibilities.Remove(compatibility);
-                await _context.SaveChangesAsync();
-            }
-            return RedirectToAction(nameof(Index));
+            ViewBag.AllComponents = _context.CarComponents.ToList();
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetCompatibleComponents(int id)
+        {
+            var compatibleIds = await _context.CarComponentCompatibilities
+                .Where(c => c.CarComponentId1 == id || c.CarComponentId2 == id)
+                .Select(c => c.CarComponentId1 == id ? c.CarComponentId2 : c.CarComponentId1)
+                .ToListAsync();
+
+            var compatibleComponents = await _context.CarComponents
+                .Where(c => compatibleIds.Contains(c.Id))
+                .ToListAsync();
+
+            return Json(compatibleComponents);
         }
     }
 }

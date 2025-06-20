@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dao.Models;
@@ -15,10 +16,12 @@ public partial class CarComponentCompatibility
     [Required(ErrorMessage = "Odaberi drugu komponentu.")]
     public int CarComponentId2 { get; set; }
 
+    [ValidateNever]
     [ForeignKey("CarComponentId1")]
     [InverseProperty("CarComponentCompatibilityCarComponentId1Navigations")]
     public virtual CarComponent CarComponentId1Navigation { get; set; } = null!;
 
+    [ValidateNever]
     [ForeignKey("CarComponentId2")]
     [InverseProperty("CarComponentCompatibilityCarComponentId2Navigations")]
     public virtual CarComponent CarComponentId2Navigation { get; set; } = null!;

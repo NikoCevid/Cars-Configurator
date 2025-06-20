@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Konfigurator";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var components = ViewBag.AllComponents as List<Dao.Models.CarComponent>;
+}
+
+<h2>Konfigurator: Prikaži kompatibilne komponente</h2>
+
+<div class="mb-3">
+    <label for="componentSelect" class="form-label">Odaberite komponentu:</label>
+    <select id="componentSelect" class="form-select">
+        <option value="">-- Odaberi --</option>
+        @foreach (var c in components)
+        {
+            <option value="@c.Id">@c.Name</option>
+        }
+    </select>
+</div>
+
+<div class="mt-4">
+    <h4>Kompatibilne komponente:</h4>
+    <ul id="compatibleList" class="list-group"></ul>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById("componentSelect").addEventListener("change", async function () {
+            const id = this.value;
+            const list = document.getElementById("compatibleList");
+            list.innerHTML = "";
+
+            if (id) {
+                try {
+                    const response = await fetch(`/CarComponentCompatibility/GetCompatibleComponents?id=${id}`);
+                    if (!response.ok) throw new Error("Greška pri dohvaćanju podataka");
+
+                    const data = await response.json();
+
+                    if (data.length === 0) {
+                        list.innerHTML = "<li class='list-group-item'>Nema kompatibilnih komponenti.</li>";
+                    } else {
+                        data.forEach(item => {
+                            const li = document.createElement("li");
+                            li.className = "list-group-item";
+                            li.textContent = item.name;
+                            list.appendChild(li);
+                        });
+                    }
+                } catch (err) {
+                    list.innerHTML = `<li class='list-group-item text-danger'>Greška: ${err.message}</li>`;
+                }
+            }
+        });
+    </script>
+}
