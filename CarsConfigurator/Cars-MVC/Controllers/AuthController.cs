@@ -15,13 +15,13 @@ namespace Cars_MVC.Controllers
             _context = context;
         }
 
-        // GET: Auth/Register
+      
         public IActionResult Register()
         {
             return View();
         }
 
-        // POST: Auth/Register
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Register(RegisterViewModel model)
@@ -35,10 +35,9 @@ namespace Cars_MVC.Controllers
                 return View(model);
             }
 
-            //Generira se nasumični salt
-            var salt = Guid.NewGuid().ToString(); // Generira random salt
+            
+            var salt = Guid.NewGuid().ToString(); 
 
-            //Kreira se hash kombinacijom lozinke + salt, koristi se Base64 encoding
             var hash = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(model.Password + salt));
 
             var user = new User
@@ -50,7 +49,7 @@ namespace Cars_MVC.Controllers
                 Phone = model.Phone,
                 PwdSalt = salt,
                 PwdHash = hash,
-                Role = "user" // korisnik po defaultu nije admin
+                Role = "user" 
             };
 
             _context.Users.Add(user);
@@ -59,13 +58,13 @@ namespace Cars_MVC.Controllers
             return RedirectToAction(nameof(Login));
         }
 
-        // GET: Auth/Login
+     
         public IActionResult Login()
         {
             return View();
         }
 
-        // POST: Auth/Login
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
@@ -101,7 +100,6 @@ namespace Cars_MVC.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // POST: Auth/Logout
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()

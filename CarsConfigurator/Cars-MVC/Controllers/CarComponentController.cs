@@ -15,7 +15,7 @@ namespace Cars_MVC.Controllers
             _context = context;
         }
 
-        // GET: CarComponent
+
         public async Task<IActionResult> Index(CarComponentFilterViewModel filter)
         {
             int pageSize = 10;
@@ -43,7 +43,6 @@ namespace Cars_MVC.Controllers
             return View(components);
         }
 
-        // GET: CarComponent/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
@@ -57,7 +56,7 @@ namespace Cars_MVC.Controllers
             return View(component);
         }
 
-        // ✅ AŽURIRANO
+    
         public IActionResult Create()
         {
             ViewBag.ComponentTypes = new SelectList(_context.ComponentTypes.ToList(), "Id", "Name");

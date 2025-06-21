@@ -31,7 +31,7 @@ namespace Cars.Controllers
             _jwtKey = config["Jwt:SecureKey"]!;
         }
 
-        /* --------------------------- REGISTER ---------------------------- */
+        
 
         [AllowAnonymous]
         [HttpPost("register")]
@@ -53,7 +53,7 @@ namespace Cars.Controllers
             return Ok("Registracija uspješna.");
         }
 
-        /* ---------------------------- LOGIN ----------------------------- */
+      
 
         [AllowAnonymous]
         [HttpPost("login")]
@@ -77,7 +77,7 @@ namespace Cars.Controllers
             });
         }
 
-        /* ----------------------- ZAŠTIĆENE AKCIJE ------------------------ */
+       
 
         [Authorize]
         [HttpGet]
@@ -97,7 +97,7 @@ namespace Cars.Controllers
             return Ok(_mapper.Map<UserDTO>(user));
         }
 
-        /* -------------------- PASSWORD HASHING --------------------------- */
+
 
         private static void CreatePasswordHash(string password,
                                                out string passwordHash,

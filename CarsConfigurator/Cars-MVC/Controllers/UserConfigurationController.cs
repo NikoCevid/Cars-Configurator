@@ -13,7 +13,7 @@ namespace Cars_MVC.Controllers
             _context = context;
         }
 
-        // GET: /UserConfiguration/Choose
+ 
         public async Task<IActionResult> Choose()
         {
             var components = await _context.CarComponents.Include(c => c.ComponentType).ToListAsync();
@@ -21,7 +21,6 @@ namespace Cars_MVC.Controllers
             return View(components);
         }
 
-        // POST: /UserConfiguration/Save
         [HttpPost]
         public async Task<IActionResult> Save(List<int> componentIds)
         {
@@ -78,7 +77,7 @@ namespace Cars_MVC.Controllers
                 .Select(ccc => ccc.CarComponent)
                 .ToList() ?? new List<CarComponent>();
 
-            return View(components); // Gleda Views/UserConfiguration/MyConfiguration.cshtml
+            return View(components); 
         }
 
     }

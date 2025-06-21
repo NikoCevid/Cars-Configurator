@@ -1,0 +1,64 @@
+﻿@model List<Cars_MVC.Models.LogEntry>
+@{
+    ViewData["Title"] = "Log list";
+    var selectedCount = ViewBag.LogCount ?? 25;
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h4>Log list</h4>
+            <form asp-controller="Auth" asp-action="Logout" method="post">
+                <button type="submit" class="btn btn-outline-secondary btn-sm">Logout</button>
+            </form>
+        </div>
+
+        <div class="card-body">
+            @if (Model != null && Model.Any())
+            {
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Vrijeme</th>
+                            <th>Razina</th>
+                            <th>Poruka</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var log in Model)
+                        {
+                            <tr>
+                                <td>@log.Timestamp.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                <td>@log.Level</td>
+                                <td>@log.Message</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="alert alert-info">Nema dostupnih logova.</div>
+            }
+        </div>
+
+        <div class="card-footer d-flex justify-content-end">
+            <form method="get" class="form-inline">
+                <select name="n" class="form-select form-select-sm me-2" style="width: auto;">
+                    @foreach (var option in new[] { 5, 10, 25, 50, 100 })
+                    {
+                        if (selectedCount == option)
+                        {
+                            <option value="@option" selected="selected">@option</option>
+                        }
+                        else
+                        {
+                            <option value="@option">@option</option>
+                        }
+                    }
+                </select>
+                <button type="submit" class="btn btn-primary btn-sm">Show Logs</button>
+            </form>
+        </div>
+    </div>
+</div>

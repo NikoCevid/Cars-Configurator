@@ -13,14 +13,14 @@ namespace Cars_MVC.Controllers
             _context = context;
         }
 
-        // GET: User
+    
         public async Task<IActionResult> Index()
         {
             var users = await _context.Users.ToListAsync();
             return View(users);
         }
 
-        // GET: User/Details/5
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
@@ -31,13 +31,13 @@ namespace Cars_MVC.Controllers
             return View(user);
         }
 
-        // GET: User/Create
+ 
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: User/Create
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FirstName,LastName,Username,Email,Phone,Role,PwdHash,PwdSalt")] User user)
@@ -51,7 +51,6 @@ namespace Cars_MVC.Controllers
             return View(user);
         }
 
-        // GET: User/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -62,7 +61,6 @@ namespace Cars_MVC.Controllers
             return View(user);
         }
 
-        // POST: User/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Username,Email,Phone,Role,PwdHash,PwdSalt")] User user)
@@ -87,7 +85,7 @@ namespace Cars_MVC.Controllers
             return View(user);
         }
 
-        // GET: User/Delete/5
+  
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -98,7 +96,7 @@ namespace Cars_MVC.Controllers
             return View(user);
         }
 
-        // POST: User/Delete/5
+    
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -16,10 +16,10 @@ using Cars.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 
 builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles); 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -33,7 +33,7 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
 });
 
 
-// Configure JWT security services
+//  JWT 
 var secureKey = builder.Configuration["Jwt:SecureKey"];
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -106,7 +106,7 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -119,8 +119,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.UseDefaultFiles(); // omoguæuje uèitavanje npr. /html/login.html
-app.UseStaticFiles();  // omoguæuje èitanje iz wwwroot/
+app.UseDefaultFiles(); 
+app.UseStaticFiles();  
 
 
 app.Run();

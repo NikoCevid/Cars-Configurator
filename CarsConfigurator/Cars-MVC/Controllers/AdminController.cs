@@ -143,7 +143,7 @@ namespace Cars_MVC.Controllers
             return View(result);
         }
 
-        // GET: Admin/Profile
+        //  Admin/Profile
         public async Task<IActionResult> Profile()
         {
             var username = User.Identity?.Name;
@@ -155,7 +155,7 @@ namespace Cars_MVC.Controllers
             return View(admin);
         }
 
-        // POST: Admin/UpdateProfile
+        // UpdateProfile
         [HttpPost]
         public async Task<IActionResult> UpdateProfile([FromBody] User updatedUser)
         {

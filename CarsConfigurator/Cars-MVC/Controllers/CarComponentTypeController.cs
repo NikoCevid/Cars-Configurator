@@ -13,13 +13,13 @@ namespace Cars_MVC.Controllers
             _context = context;
         }
 
-        // GET: ComponentType
+   
         public async Task<IActionResult> Index()
         {
             return View(await _context.ComponentTypes.ToListAsync());
         }
 
-        // GET: ComponentType/Details/5
+      
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
@@ -31,13 +31,13 @@ namespace Cars_MVC.Controllers
             return View(componentType);
         }
 
-        // GET: ComponentType/Create
+   
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: ComponentType/Create
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ComponentType componentType)
@@ -51,7 +51,7 @@ namespace Cars_MVC.Controllers
             return View(componentType);
         }
 
-        // GET: ComponentType/Edit/5
+  
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -62,7 +62,6 @@ namespace Cars_MVC.Controllers
             return View(componentType);
         }
 
-        // POST: ComponentType/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, ComponentType componentType)
@@ -88,7 +87,7 @@ namespace Cars_MVC.Controllers
             return View(componentType);
         }
 
-        // GET: ComponentType/Delete/5
+    
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -100,7 +99,6 @@ namespace Cars_MVC.Controllers
             return View(componentType);
         }
 
-        // POST: ComponentType/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -16,7 +16,7 @@ namespace Dao.Repositories
         public async Task<List<CarComponent>> GetAllAsync()
         {
             return await _context.CarComponents
-                .Include(c => c.ComponentType) // ako koristiš navigaciju
+                .Include(c => c.ComponentType) 
                 .ToListAsync();
         }
 

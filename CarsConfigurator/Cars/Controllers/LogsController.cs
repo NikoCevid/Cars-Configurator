@@ -17,7 +17,7 @@ namespace Cars.Controllers
             _logService = logService;
         }
 
-        // GET: api/logs/get/10
+        //logs/get/10
         [HttpGet("get/{n}")]
         [Authorize] 
         public ActionResult<IEnumerable<LogEntry>> GetLastN(int n)
@@ -28,7 +28,7 @@ namespace Cars.Controllers
             return Ok(logs);
         }
 
-        // GET: api/logs/count
+        //logs/count
         [HttpGet("count")]
         [Authorize] 
         public ActionResult<int> GetCount()
