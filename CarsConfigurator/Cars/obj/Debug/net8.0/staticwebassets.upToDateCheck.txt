@@ -1,3 +1,0 @@
-wwwroot\html\login.html
-wwwroot\html\logs.html
-wwwroot\logs.txt

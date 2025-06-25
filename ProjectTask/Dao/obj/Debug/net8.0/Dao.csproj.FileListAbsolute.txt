@@ -1,0 +1,15 @@
+C:\Users\User\Desktop\RWA PROJEKT\ProjectTask\Dao\bin\Debug\net8.0\Dao.deps.json
+C:\Users\User\Desktop\RWA PROJEKT\ProjectTask\Dao\bin\Debug\net8.0\Dao.runtimeconfig.json
+C:\Users\User\Desktop\RWA PROJEKT\ProjectTask\Dao\bin\Debug\net8.0\Dao.dll
+C:\Users\User\Desktop\RWA PROJEKT\ProjectTask\Dao\bin\Debug\net8.0\Dao.pdb
+C:\Users\User\Desktop\RWA PROJEKT\ProjectTask\Dao\obj\Debug\net8.0\Dao.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\RWA PROJEKT\ProjectTask\Dao\obj\Debug\net8.0\Dao.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\RWA PROJEKT\ProjectTask\Dao\obj\Debug\net8.0\Dao.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\RWA PROJEKT\ProjectTask\Dao\obj\Debug\net8.0\Dao.AssemblyInfo.cs
+C:\Users\User\Desktop\RWA PROJEKT\ProjectTask\Dao\obj\Debug\net8.0\Dao.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\RWA PROJEKT\ProjectTask\Dao\obj\Debug\net8.0\Dao.sourcelink.json
+C:\Users\User\Desktop\RWA PROJEKT\ProjectTask\Dao\obj\Debug\net8.0\Dao.dll
+C:\Users\User\Desktop\RWA PROJEKT\ProjectTask\Dao\obj\Debug\net8.0\refint\Dao.dll
+C:\Users\User\Desktop\RWA PROJEKT\ProjectTask\Dao\obj\Debug\net8.0\Dao.pdb
+C:\Users\User\Desktop\RWA PROJEKT\ProjectTask\Dao\obj\Debug\net8.0\Dao.genruntimeconfig.cache
+C:\Users\User\Desktop\RWA PROJEKT\ProjectTask\Dao\obj\Debug\net8.0\ref\Dao.dll
