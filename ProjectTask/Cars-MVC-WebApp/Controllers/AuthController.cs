@@ -34,6 +34,13 @@ namespace Cars_MVC.Controllers
                 return View(model);
             }
 
+            if (_context.Users.Any(u => u.Email.ToLower() == model.Email.ToLower()))
+            {
+                ModelState.AddModelError("Email", "Email adresa je već registrirana.");
+                return View(model);
+            }
+
+
             var salt = Guid.NewGuid().ToString();
             var hash = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(model.Password + salt));
 
@@ -47,7 +54,7 @@ namespace Cars_MVC.Controllers
                 PwdSalt = salt,
                 PwdHash = hash,
 
-                // ✅ ispravna uloga s velikim slovom:
+               
                 Role = "User"
             };
 
@@ -107,8 +114,20 @@ namespace Cars_MVC.Controllers
             await HttpContext.SignOutAsync("MyCookieAuth");
             return RedirectToAction(nameof(Login));
         }
-    
-    
-    
+
+        [AcceptVerbs("Get", "Post")]
+        public IActionResult IsUsernameAvailable(string username)
+        {
+            bool exists = _context.Users.Any(u => u.Username.ToLower() == username.ToLower());
+            if (exists)
+            {
+                return Json($"Korisničko ime '{username}' je već zauzeto.");
+            }
+
+            return Json(true);
+        }
+
+
+
     }
 }

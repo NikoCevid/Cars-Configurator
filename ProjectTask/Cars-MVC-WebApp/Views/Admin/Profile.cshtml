@@ -6,35 +6,54 @@
 
 <h2>Admin Profile</h2>
 
-<div class="form-group">
-    <label>First Name</label>
-    <input class="form-control" id="firstName" value="@Model.FirstName" />
-</div>
-<div class="form-group">
-    <label>Last Name</label>
-    <input class="form-control" id="lastName" value="@Model.LastName" />
-</div>
-<div class="form-group">
-    <label>Email</label>
-    <input class="form-control" id="email" value="@Model.Email" />
-</div>
-<div class="form-group">
-    <label>Phone</label>
-    <input class="form-control" id="phone" value="@Model.Phone" />
-</div>
-<br />
-<button class="btn btn-primary" onclick="updateProfile()">Save Changes</button>
+<form id="profileForm">
+    <div class="form-group">
+        <label>First Name</label>
+        <input type="text" id="firstName" class="form-control" value="@Model.FirstName" required />
+    </div>
+
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" id="lastName" class="form-control" value="@Model.LastName" required />
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" class="form-control" value="@Model.Email" required />
+    </div>
+
+    <div class="form-group">
+        <label>Phone</label>
+        <input type="text" id="phone" class="form-control" value="@Model.Phone" required />
+    </div>
+
+    <br />
+    <button type="button" id="saveBtn" class="btn btn-primary">Save Changes</button>
+</form>
 
 <div id="message" class="mt-2"></div>
 
 @section Scripts {
     <script>
-        function updateProfile() {
+        document.getElementById("saveBtn").addEventListener("click", function () {
+            const firstName = document.getElementById("firstName").value.trim();
+            const lastName = document.getElementById("lastName").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+
+            const msg = document.getElementById("message");
+
+            if (!firstName || !lastName || !email || !phone) {
+                msg.innerText = "Sva polja moraju biti ispunjena.";
+                msg.style.color = "red";
+                return;
+            }
+
             const userData = {
-                FirstName: document.getElementById("firstName").value,
-                LastName: document.getElementById("lastName").value,
-                Email: document.getElementById("email").value,
-                Phone: document.getElementById("phone").value
+                firstName,
+                lastName,
+                email,
+                phone
             };
 
             fetch('/Admin/UpdateProfile', {
@@ -42,12 +61,15 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(userData)
             })
-            .then(res => res.json())
-            .then(data => {
-                const msg = document.getElementById("message");
-                msg.innerText = data.message;
-                msg.style.color = data.success ? "green" : "red";
-            });
-        }
+                .then(res => res.json())
+                .then(data => {
+                    msg.innerText = data.message;
+                    msg.style.color = data.success ? "green" : "red";
+                })
+                .catch(err => {
+                    msg.innerText = "Došlo je do greške.";
+                    msg.style.color = "red";
+                });
+        });
     </script>
 }

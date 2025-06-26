@@ -1,10 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace Cars_MVC.Models
 {
     public class RegisterViewModel
     {
         [Required(ErrorMessage = "Korisničko ime je obavezno.")]
+        [Remote(action: "IsUsernameAvailable", controller: "Auth")]
         [Display(Name = "Korisničko ime")]
         public string Username { get; set; } = string.Empty;
 
@@ -34,5 +36,10 @@ namespace Cars_MVC.Models
         [Compare("Password", ErrorMessage = "Lozinke se ne podudaraju.")]
         [Display(Name = "Potvrdi lozinku")]
         public string ConfirmPassword { get; set; } = string.Empty;
+
+
+
+
+
     }
 }

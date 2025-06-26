@@ -60,5 +60,3 @@ CREATE TABLE [dbo].[UserRole](
 	[Role] [nvarchar](100) NOT NULL
 ) 
 
-
-

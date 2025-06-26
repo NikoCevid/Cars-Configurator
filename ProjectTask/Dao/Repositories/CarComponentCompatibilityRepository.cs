@@ -14,10 +14,11 @@ namespace Dao.Repositories
         }
 
         public async Task<List<CarComponentCompatibility>> GetAllAsync() =>
-            await _context.CarComponentCompatibilities
-                .Include(c => c.CarComponentId1)
-                .Include(c => c.CarComponentId2)
-                .ToListAsync();
+    await _context.CarComponentCompatibilities
+        .Include(c => c.CarComponentId1Navigation)
+        .Include(c => c.CarComponentId2Navigation)
+        .ToListAsync();
+
 
         public async Task<CarComponentCompatibility?> GetByIdAsync(int id) =>
             await _context.CarComponentCompatibilities.FindAsync(id);

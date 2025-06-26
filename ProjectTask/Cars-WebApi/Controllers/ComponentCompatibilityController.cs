@@ -46,9 +46,15 @@ namespace Cars.Controllers
                 return BadRequest(ModelState);
 
             var entity = _mapper.Map<CarComponentCompatibility>(dto);
+
+            // 💡 Ovo je ključno: osiguravaš da EF ne pokuša spremiti prazan navigacijski objekt
+            entity.CarComponentId1Navigation = null;
+            entity.CarComponentId2Navigation = null;
+
             await _service.AddAsync(entity);
             return Ok();
         }
+
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)

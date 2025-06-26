@@ -1,4 +1,5 @@
-﻿using Dao.Models;
+﻿using Cars_MVC.Models;
+using Dao.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -61,24 +62,25 @@ namespace Cars_MVC.Controllers
                 .Include(u => u.Configurations)
                     .ThenInclude(c => c.ConfigurationCarComponents)
                         .ThenInclude(cc => cc.CarComponent)
-                            .ThenInclude(comp => comp.ComponentType)
                 .FirstOrDefaultAsync(u => u.Username == username);
 
             if (user == null) return Unauthorized();
 
-            var lastConfig = user.Configurations
-                .OrderByDescending(c => c.Id)
-                .FirstOrDefault();
+            var model = user.Configurations
+                .OrderByDescending(c => c.CreationDate)
+                .Select(config => new UserConfigurationGroupedViewModel
+                {
+                    UserName = user.Username,
+                    CreatedAt = config.CreationDate,
+                    ComponentNames = string.Join(", ", config.ConfigurationCarComponents
+                        .Select(cc => cc.CarComponent.Name))
+                })
+                .ToList();
 
-            ViewBag.ConfigDate = lastConfig?.CreationDate;
-
-            var components = lastConfig?
-                .ConfigurationCarComponents
-                .Select(ccc => ccc.CarComponent)
-                .ToList() ?? new List<CarComponent>();
-
-            return View(components); 
+            return View(model);
         }
+
+
 
     }
 }

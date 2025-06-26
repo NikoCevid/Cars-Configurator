@@ -1,34 +1,29 @@
-﻿@model List<Dao.Models.CarComponent>
+﻿@model List<Cars_MVC.Models.UserConfigurationGroupedViewModel>
+
 @{
-    ViewData["Title"] = "Moja konfiguracija";
+    ViewData["Title"] = "Moje konfiguracije";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var configDate = ViewBag.ConfigDate as DateTime?;
 }
 
-<h2>Moje odabrane komponente</h2>
-
-@if (configDate != null)
-{
-    <p><strong>Datum spremanja:</strong> @configDate?.ToString("dd.MM.yyyy. HH:mm")</p>
-}
+<h2>Moje konfiguracije</h2>
 
 @if (Model.Any())
 {
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Naziv</th>
-                <th>Opis</th>
-                <th>Vrsta</th>
+                <th>Korisnik</th>
+                <th>Komponente</th>
+                <th>Datum konfiguracije</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var c in Model)
+            @foreach (var item in Model)
             {
                 <tr>
-                    <td>@c.Name</td>
-                    <td>@c.Description</td>
-                    <td>@c.ComponentType?.Name</td>
+                    <td>@item.UserName</td>
+                    <td>@item.ComponentNames</td>
+                    <td>@item.CreatedAt.ToString("dd.MM.yyyy. HH:mm")</td>
                 </tr>
             }
         </tbody>

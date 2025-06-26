@@ -62,13 +62,23 @@ namespace Cars_MVC.Controllers
             ViewBag.ComponentTypes = new SelectList(_context.ComponentTypes.ToList(), "Id", "Name");
             return View(new CarComponentUploadViewModel());
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CarComponentUploadViewModel model)
         {
             if (!ModelState.IsValid)
             {
+                ViewBag.ComponentTypes = new SelectList(_context.ComponentTypes.ToList(), "Id", "Name", model.ComponentTypeId);
+                return View(model);
+            }
+
+            // ✅ Provjera postoji li komponenta s istim imenom (case-insensitive)
+            var existing = await _context.CarComponents
+                .FirstOrDefaultAsync(c => c.Name.ToLower() == model.Name.ToLower());
+
+            if (existing != null)
+            {
+                ModelState.AddModelError("Name", "Komponenta s tim imenom već postoji.");
                 ViewBag.ComponentTypes = new SelectList(_context.ComponentTypes.ToList(), "Id", "Name", model.ComponentTypeId);
                 return View(model);
             }
@@ -94,6 +104,7 @@ namespace Cars_MVC.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
 
         public async Task<IActionResult> Edit(int? id)
         {

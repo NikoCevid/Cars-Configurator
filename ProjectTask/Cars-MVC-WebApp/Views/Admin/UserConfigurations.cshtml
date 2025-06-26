@@ -1,44 +1,61 @@
-﻿@model List<Cars_MVC.Models.UserConfigurationDTO>
+﻿@model List<Cars_MVC.Models.UserConfigurationGroupedViewModel>
 
 @{
-    ViewData["Title"] = "Konfiguracije korisnika";
+    ViewData["Title"] = "Sve korisničke konfiguracije";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int currentPage = ViewBag.CurrentPage;
+    int totalPages = ViewBag.TotalPages;
+    int pageSize = ViewBag.PageSize;
 }
 
-<h2>Konfiguracije korisnika</h2>
+<h2>Sve korisničke konfiguracije</h2>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Korisnik</th>
-            <th>Komponente</th>
-            <th>Datum konfiguracije</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in Model)
-        {
+<form method="get" class="form-inline mb-3">
+    <label for="PageSize">Prikaži:</label>
+    <select name="PageSize" onchange="this.form.submit()" class="form-control mx-2">
+        <option value="5" selected="@(pageSize == 5)">5</option>
+        <option value="10" selected="@(pageSize == 10)">10</option>
+        <option value="15" selected="@(pageSize == 15)">15</option>
+        <option value="20" selected="@(pageSize == 20)">20</option>
+    </select> konfiguracija po stranici.
+    <input type="hidden" name="Page" value="@currentPage" />
+</form>
+
+@if (Model.Any())
+{
+    <table class="table table-bordered">
+        <thead>
             <tr>
-                <td>@user.Username</td>
-                <td>
-                    @if (user.ComponentNames.Any())
-                    {
-                        <ul>
-                            @foreach (var comp in user.ComponentNames)
-                            {
-                                <li>@comp</li>
-                            }
-                        </ul>
-                    }
-                    else
-                    {
-                        <i>Nema spremljenih komponenti</i>
-                    }
-                </td>
-                <td>
-                    @user.LastConfigurationDate?.ToString("dd.MM.yyyy. HH:mm") 
-                </td>
+                <th>Korisnik</th>
+                <th>Komponente</th>
+                <th>Datum konfiguracije</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.UserName</td>
+                    <td>@item.ComponentNames</td>
+                    <td>@item.CreatedAt.ToString("dd.MM.yyyy. HH:mm")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <nav>
+        <ul class="pagination">
+            @for (int i = 1; i <= totalPages; i++)
+            {
+                <li class="page-item @(i == currentPage ? "active" : "")">
+                    <a class="page-link" href="?Page=@i&PageSize=@pageSize">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}
+else
+{
+    <p><em>Nijedan korisnik još nije spremio konfiguraciju.</em></p>
+}

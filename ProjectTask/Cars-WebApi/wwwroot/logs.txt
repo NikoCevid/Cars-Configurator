@@ -12,3 +12,7 @@
 [2025-06-26T00:47:56.9855405+02:00] INFO: Korisnik milan22 je registriran.
 [2025-06-26T00:48:22.1531568+02:00] INFO: Korisnik milan22 se uspješno prijavio.
 [2025-06-26T00:48:51.7831166+02:00] INFO: Korisnik milan22 se uspješno prijavio.
+[2025-06-26T13:59:40.5115202+02:00] INFO: Korisnik admin2 je registriran.
+[2025-06-26T13:59:58.5585541+02:00] INFO: Korisnik admin2 se uspješno prijavio.
+[2025-06-26T20:25:08.8949334+02:00] INFO: Korisnik Nova je registriran.
+[2025-06-26T20:25:21.5117320+02:00] INFO: Korisnik Nova se uspješno prijavio.

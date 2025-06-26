@@ -91,6 +91,7 @@ namespace Cars_MVC.Controllers
                 {
                     _context.Update(user);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -99,8 +100,6 @@ namespace Cars_MVC.Controllers
                     else
                         throw;
                 }
-
-                return RedirectToAction(nameof(Index));
             }
 
             return View(user);
@@ -140,29 +139,38 @@ namespace Cars_MVC.Controllers
             return View(user);
         }
 
-        public async Task<IActionResult> UserConfigurations()
+        public async Task<IActionResult> UserConfigurations(int Page = 1, int PageSize = 10)
         {
-            var data = await _context.Users
+            var users = await _context.Users
                 .Include(u => u.Configurations)
                     .ThenInclude(c => c.ConfigurationCarComponents)
                         .ThenInclude(cc => cc.CarComponent)
                 .ToListAsync();
 
-            var result = data.Select(u => new UserConfigurationDTO
-            {
-                Username = u.Username,
-                ComponentNames = u.Configurations
-                    .SelectMany(conf => conf.ConfigurationCarComponents)
-                    .Select(cc => cc.CarComponent.Name)
-                    .Distinct()
-                    .ToList(),
-                LastConfigurationDate = u.Configurations
-                    .OrderByDescending(c => c.Id)
-                    .FirstOrDefault()?.CreationDate
-            }).ToList();
+            var allConfigurations = users
+                .SelectMany(u => u.Configurations.Select(config => new UserConfigurationGroupedViewModel
+                {
+                    UserName = u.Username,
+                    CreatedAt = config.CreationDate,
+                    ComponentNames = string.Join(", ", config.ConfigurationCarComponents
+                        .Select(cc => cc.CarComponent.Name))
+                }))
+                .OrderByDescending(c => c.CreatedAt)
+                .ToList();
 
-            return View(result);
+            ViewBag.CurrentPage = Page;
+            ViewBag.TotalPages = (int)Math.Ceiling((double)allConfigurations.Count / PageSize);
+            ViewBag.PageSize = PageSize;
+
+            var pagedConfigurations = allConfigurations
+                .Skip((Page - 1) * PageSize)
+                .Take(PageSize)
+                .ToList();
+
+            return View(pagedConfigurations);
         }
+
+
 
         // GET: Admin/Profile
         public async Task<IActionResult> Profile()
@@ -182,7 +190,17 @@ namespace Cars_MVC.Controllers
         {
             var username = User.Identity?.Name;
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username && u.Role == "Admin");
-            if (user == null) return Json(new { success = false, message = "Admin not found." });
+            if (user == null)
+                return Json(new { success = false, message = "Admin nije pronađen." });
+
+            // Validacija na serveru (dodatno)
+            if (string.IsNullOrWhiteSpace(updatedUser.FirstName) ||
+                string.IsNullOrWhiteSpace(updatedUser.LastName) ||
+                string.IsNullOrWhiteSpace(updatedUser.Email) ||
+                string.IsNullOrWhiteSpace(updatedUser.Phone))
+            {
+                return Json(new { success = false, message = "Sva polja moraju biti ispunjena." });
+            }
 
             user.FirstName = updatedUser.FirstName;
             user.LastName = updatedUser.LastName;
@@ -190,7 +208,28 @@ namespace Cars_MVC.Controllers
             user.Phone = updatedUser.Phone;
 
             await _context.SaveChangesAsync();
-            return Json(new { success = true, message = "Profile updated successfully." });
+            return Json(new { success = true, message = "Profil uspješno ažuriran." });
         }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateUser([FromBody] User updatedUser)
+        {
+            var user = await _context.Users.FindAsync(updatedUser.Id);
+            if (user == null)
+                return Json(new { success = false, message = "Korisnik nije pronađen." });
+
+            // Ažuriraj podatke
+            user.Username = updatedUser.Username;
+            user.Email = updatedUser.Email;
+            user.FirstName = updatedUser.FirstName;
+            user.LastName = updatedUser.LastName;
+            user.Phone = updatedUser.Phone;
+            user.Role = updatedUser.Role;
+
+            await _context.SaveChangesAsync();
+            return Json(new { success = true, message = "Korisnik uspješno ažuriran." });
+        }
+
+
     }
 }

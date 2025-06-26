@@ -1,8 +1,5 @@
-﻿namespace Cars.DTO
+﻿public class CreateCompabilityDTO
 {
-    public class CreateCompabilityDTO
-    {
-        public int ComponentId1 { get; set; }
-        public int ComponentId2 { get; set; }
-    }
+    public int CarComponentId1 { get; set; }
+    public int CarComponentId2 { get; set; }
 }

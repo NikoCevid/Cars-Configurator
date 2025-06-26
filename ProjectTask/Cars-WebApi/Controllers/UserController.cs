@@ -38,7 +38,8 @@ namespace Cars.Controllers
         public async Task<ActionResult> Register([FromBody] CreateUserDTO dto)
         {
             if (await _service.GetByUsernameAsync(dto.Username) is not null)
-                return BadRequest("Korisničko ime već postoji.");
+                return Conflict("Korisničko ime već postoji.");
+
 
             CreatePasswordHash(dto.Password, out string hash, out string salt);
 
@@ -79,7 +80,7 @@ namespace Cars.Controllers
 
        
 
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserDTO>>> GetAll()
         {
@@ -87,7 +88,7 @@ namespace Cars.Controllers
             return Ok(_mapper.Map<List<UserDTO>>(data));
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet("{id:int}")]
         public async Task<ActionResult<UserDTO>> GetById(int id)
         {

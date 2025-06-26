@@ -1322,11 +1322,11 @@
       "CreateCompabilityDTO": {
         "type": "object",
         "properties": {
-          "componentId1": {
+          "carComponentId1": {
             "type": "integer",
             "format": "int32"
           },
-          "componentId2": {
+          "carComponentId2": {
             "type": "integer",
             "format": "int32"
           }

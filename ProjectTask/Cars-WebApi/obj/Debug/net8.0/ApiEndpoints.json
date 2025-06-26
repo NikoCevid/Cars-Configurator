@@ -164,7 +164,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "Cars.DTO.CreateCompabilityDTO",
+        "Type": "CreateCompabilityDTO",
         "IsRequired": true
       }
     ],

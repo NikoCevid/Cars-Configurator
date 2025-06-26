@@ -48,8 +48,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>d58mpo6u9s</Fingerprint>
-      <Integrity>PzSxVxL+w6jku+2hQDkajrP7UllVu9TFMRiG3/z0msk=</Integrity>
+      <Fingerprint>2c0twk6m42</Fingerprint>
+      <Integrity>8nbtHcaAfsBGv7SaudvGiPAx8rWt/trG6JwDgBwGQlQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\logs.txt'))</OriginalItemSpec>
