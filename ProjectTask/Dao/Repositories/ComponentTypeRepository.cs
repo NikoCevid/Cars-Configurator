@@ -44,5 +44,21 @@ namespace Dao.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task<List<ComponentType>> SearchAsync(string? query, int page, int pageSize)
+        {
+            var types = _context.ComponentTypes.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(query))
+            {
+                types = types.Where(ct => ct.Name.Contains(query));
+            }
+
+            return await types
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+        }
+
     }
 }

@@ -7,7 +7,8 @@
 
 <h2>Uredi korisnika</h2>
 
-<form asp-action="Edit">
+<!-- OBAVEZNO -->
+<form asp-action="Edit" asp-route-id="@Model.Id" method="post">
     <input type="hidden" asp-for="Id" />
 
     <div class="form-group">
@@ -54,7 +55,5 @@
 </form>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    @await Html.PartialAsync("_ValidationScriptsPartial")
 }

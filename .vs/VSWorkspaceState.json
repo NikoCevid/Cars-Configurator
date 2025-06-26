@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ProjectTask",
+    "\\ProjectTask\\Cars-WebApi"
   ],
+  "SelectedNode": "\\ProjectTask\\Cars-WebApi\\appsettings.json",
   "PreviewInSolutionExplorer": false
 }

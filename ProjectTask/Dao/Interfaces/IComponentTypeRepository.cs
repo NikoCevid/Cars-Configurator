@@ -9,5 +9,8 @@ namespace Dao.Interfaces
         Task AddAsync(ComponentType type);
         Task UpdateAsync(ComponentType type);
         Task DeleteAsync(int id);
+
+        Task<List<ComponentType>> SearchAsync(string? query, int page, int pageSize);
+
     }
 }

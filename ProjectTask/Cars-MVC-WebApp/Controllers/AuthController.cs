@@ -21,7 +21,6 @@ namespace Cars_MVC.Controllers
             return View();
         }
 
-       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Register(RegisterViewModel model)
@@ -35,9 +34,7 @@ namespace Cars_MVC.Controllers
                 return View(model);
             }
 
-            
-            var salt = Guid.NewGuid().ToString(); 
-
+            var salt = Guid.NewGuid().ToString();
             var hash = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(model.Password + salt));
 
             var user = new User
@@ -49,7 +46,9 @@ namespace Cars_MVC.Controllers
                 Phone = model.Phone,
                 PwdSalt = salt,
                 PwdHash = hash,
-                Role = "user" 
+
+                // ✅ ispravna uloga s velikim slovom:
+                Role = "User"
             };
 
             _context.Users.Add(user);
@@ -58,7 +57,8 @@ namespace Cars_MVC.Controllers
             return RedirectToAction(nameof(Login));
         }
 
-     
+
+
         public IActionResult Login()
         {
             return View();

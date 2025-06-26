@@ -8,5 +8,8 @@ namespace Cars.Services.Interfaces
         Task<Configuration?> GetByIdAsync(int id);
         Task AddAsync(Configuration config);
         Task DeleteAsync(int id);
+
+        Task<List<Configuration>> SearchAsync(string? query, int page, int pageSize);
+
     }
 }

@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<Dao.Models.CarComponent>
 @using Microsoft.AspNetCore.Mvc.Rendering
-
 @{
     ViewData["Title"] = "Popis komponenti";
     var filter = (Cars_MVC.Models.CarComponentFilterViewModel)ViewBag.Filter;
@@ -18,15 +17,15 @@
         <input type="text" name="SearchTerm" value="@filter.SearchTerm" class="form-control" placeholder="Pretraži po nazivu..." />
     </div>
     <div class="col-md-4">
-      <select name="ComponentTypeId" class="form-select">
-    <option value="">-- Vrsta --</option>
-    @foreach (var type in (List<SelectListItem>)ViewBag.ComponentTypes)
-    {
-        var selected = filter.ComponentTypeId == int.Parse(type.Value) ? "selected" : "";
-        <option value="@type.Value" selected>@type.Text</option>
-    }
-</select>
+        <select name="ComponentTypeId" class="form-select">
+            <option value="">-- Vrsta --</option>
+            @foreach (var type in (List<SelectListItem>)ViewBag.ComponentTypes)
+            {
+                bool isSelected = filter.ComponentTypeId.HasValue && filter.ComponentTypeId == int.Parse(type.Value);
+                <option value="@type.Value" selected="@(isSelected ? "selected" : null)">@type.Text</option>
+            }
 
+        </select>
     </div>
     <div class="col-md-3">
         <button type="submit" class="btn btn-primary w-100">Pretraži</button>
@@ -44,8 +43,6 @@ else
         {
             <div class="col">
                 <div class="card h-100 shadow-sm">
-
-                    @* Prikaz slike iz Base64 *@
                     @if (!string.IsNullOrEmpty(item.ImageBase64))
                     {
                         <img src="data:image/png;base64,@item.ImageBase64"
@@ -79,7 +76,7 @@ else
             {
                 <li class="page-item @(i == filter.Page ? "active" : "")">
                     <a class="page-link"
-                       href="?SearchTerm=@filter.SearchTerm@(filter.ComponentTypeId.HasValue ? $"&ComponentTypeId={filter.ComponentTypeId}" : "")&Page=@i">
+                       href="@Url.Action("Index", new { SearchTerm = filter.SearchTerm, ComponentTypeId = filter.ComponentTypeId, Page = i })">
                         @i
                     </a>
                 </li>

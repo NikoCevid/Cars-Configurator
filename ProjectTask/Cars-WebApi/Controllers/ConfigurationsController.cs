@@ -2,6 +2,7 @@
 using Cars.DTO;
 using Cars.Services.Interfaces;
 using Dao.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cars.Controllers
@@ -48,5 +49,15 @@ namespace Cars.Controllers
             await _service.DeleteAsync(id);
             return Ok();
         }
+
+        //[Authorize]
+        [HttpGet("search")]
+        public async Task<ActionResult<IEnumerable<ConfigurationDTO>>> Search(string? query = "", int page = 1, int pageSize = 10)
+        {
+            var configs = await _service.SearchAsync(query, page, pageSize);
+            return Ok(_mapper.Map<List<ConfigurationDTO>>(configs));
+        }
+
+
     }
 }

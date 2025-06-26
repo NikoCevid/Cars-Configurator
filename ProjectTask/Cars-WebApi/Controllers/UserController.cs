@@ -121,5 +121,14 @@ namespace Cars.Controllers
 
             return computedHash.SequenceEqual(expectedHash);
         }
+
+        [Authorize]
+        [HttpGet("search")]
+        public async Task<ActionResult<IEnumerable<UserDTO>>> Search(string? query = "", int page = 1, int pageSize = 10)
+        {
+            var users = await _service.SearchAsync(query, page, pageSize);
+            return Ok(_mapper.Map<List<UserDTO>>(users));
+        }
+
     }
 }

@@ -48,5 +48,22 @@ namespace Dao.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task<List<CarComponent>> SearchAsync(string? query, int page, int pageSize)
+        {
+            var components = _context.CarComponents.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(query))
+            {
+                components = components.Where(c =>
+                    c.Name.Contains(query) || (c.Description != null && c.Description.Contains(query)));
+            }
+
+            return await components
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+        }
+
     }
 }

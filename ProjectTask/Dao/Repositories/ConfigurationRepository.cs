@@ -34,5 +34,27 @@ namespace Dao.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task<List<Configuration>> SearchAsync(string? query, int page, int pageSize)
+        {
+            var configs = _context.Configurations
+                .Include(c => c.User)
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(query))
+            {
+                configs = configs.Where(c =>
+                    c.User.Username.Contains(query) ||
+                    c.Id.ToString().Contains(query) ||
+                    c.CreationDate.ToString().Contains(query));
+            }
+
+            return await configs
+                .OrderByDescending(c => c.CreationDate)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+        }
+
     }
 }

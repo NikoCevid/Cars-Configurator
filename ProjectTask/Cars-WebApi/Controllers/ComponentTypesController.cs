@@ -57,5 +57,14 @@ namespace Cars.Controllers
             await _service.DeleteAsync(id);
             return Ok();
         }
+
+        [HttpGet("search")]
+        public async Task<ActionResult<IEnumerable<ComponentTypeDTO>>> Search(string? query = "", int page = 1, int pageSize = 10)
+        {
+            var data = await _service.SearchAsync(query, page, pageSize);
+            return Ok(_mapper.Map<List<ComponentTypeDTO>>(data));
+        }
+
     }
+
 }

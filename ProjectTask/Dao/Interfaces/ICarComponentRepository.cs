@@ -9,5 +9,7 @@ namespace Dao.Interfaces
         Task AddAsync(CarComponent component);
         Task UpdateAsync(CarComponent component);
         Task DeleteAsync(int id);
+        Task<List<CarComponent>> SearchAsync(string? query, int page, int pageSize);
+
     }
 }

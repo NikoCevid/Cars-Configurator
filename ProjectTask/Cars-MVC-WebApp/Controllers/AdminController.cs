@@ -1,7 +1,6 @@
 ﻿using Cars_MVC.Models;
 using Dao.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Cars_MVC.Controllers
@@ -16,28 +15,36 @@ namespace Cars_MVC.Controllers
         }
 
         // GET: Admin
-        public async Task<IActionResult> Index(string search, string roleFilter, int page = 1)
+        public async Task<IActionResult> Index(string SearchUsername, string SearchRole, int Page = 1, int PageSize = 10)
         {
-            int pageSize = 10;
             var query = _context.Users.AsQueryable();
 
-            if (!string.IsNullOrWhiteSpace(search))
-                query = query.Where(u => u.Username.Contains(search));
+            if (!string.IsNullOrWhiteSpace(SearchUsername))
+                query = query.Where(u => u.Username.Contains(SearchUsername));
 
-            if (!string.IsNullOrWhiteSpace(roleFilter))
-                query = query.Where(u => u.Role == roleFilter);
+            if (!string.IsNullOrWhiteSpace(SearchRole))
+                query = query.Where(u => u.Role == SearchRole);
 
-            ViewBag.Roles = new SelectList(await _context.Users.Select(u => u.Role).Distinct().ToListAsync());
-            ViewBag.CurrentSearch = search;
-            ViewBag.CurrentRole = roleFilter;
-            ViewBag.CurrentPage = page;
-            ViewBag.TotalPages = (int)Math.Ceiling((double)await query.CountAsync() / pageSize);
+            var roles = await _context.Users
+                .Select(u => u.Role)
+                .Distinct()
+                .ToListAsync();
 
-            var users = await query.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+            var totalUsers = await query.CountAsync();
+            var users = await query
+                .Skip((Page - 1) * PageSize)
+                .Take(PageSize)
+                .ToListAsync();
 
             var viewModel = new AdminUserListViewModel
             {
-                Users = users
+                Users = users,
+                AvailableRoles = roles,
+                SearchUsername = SearchUsername,
+                SearchRole = SearchRole,
+                CurrentPage = Page,
+                TotalPages = (int)Math.Ceiling((double)totalUsers / PageSize),
+                PageSize = PageSize
             };
 
             return View(viewModel);
@@ -75,16 +82,30 @@ namespace Cars_MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, User user)
         {
-            if (id != user.Id) return NotFound();
+            if (id != user.Id)
+                return NotFound();
 
             if (ModelState.IsValid)
             {
-                _context.Update(user);
-                await _context.SaveChangesAsync();
+                try
+                {
+                    _context.Update(user);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!_context.Users.Any(e => e.Id == id))
+                        return NotFound();
+                    else
+                        throw;
+                }
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(user);
         }
+
 
         public async Task<IActionResult> Delete(int? id)
         {
@@ -143,7 +164,7 @@ namespace Cars_MVC.Controllers
             return View(result);
         }
 
-        //  Admin/Profile
+        // GET: Admin/Profile
         public async Task<IActionResult> Profile()
         {
             var username = User.Identity?.Name;
@@ -155,7 +176,7 @@ namespace Cars_MVC.Controllers
             return View(admin);
         }
 
-        // UpdateProfile
+        // POST: Admin/UpdateProfile
         [HttpPost]
         public async Task<IActionResult> UpdateProfile([FromBody] User updatedUser)
         {
@@ -171,6 +192,5 @@ namespace Cars_MVC.Controllers
             await _context.SaveChangesAsync();
             return Json(new { success = true, message = "Profile updated successfully." });
         }
-
     }
 }

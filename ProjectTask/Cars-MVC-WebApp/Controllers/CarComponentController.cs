@@ -18,7 +18,7 @@ namespace Cars_MVC.Controllers
 
         public async Task<IActionResult> Index(CarComponentFilterViewModel filter)
         {
-            int pageSize = 10;
+            int pageSize = 6;
             var query = _context.CarComponents.Include(c => c.ComponentType).AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(filter.SearchTerm))

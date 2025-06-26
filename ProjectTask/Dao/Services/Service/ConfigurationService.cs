@@ -1,6 +1,7 @@
 ﻿using Cars.Services.Interfaces;
 using Dao.Interfaces;
 using Dao.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cars.Services
 {
@@ -14,5 +15,12 @@ namespace Cars.Services
         public async Task<Configuration?> GetByIdAsync(int id) => await _repo.GetByIdAsync(id);
         public async Task AddAsync(Configuration config) => await _repo.AddAsync(config);
         public async Task DeleteAsync(int id) => await _repo.DeleteAsync(id);
+
+        public async Task<List<Configuration>> SearchAsync(string? query, int page, int pageSize)
+        {
+            return await _repo.SearchAsync(query, page, pageSize);
+        }
+
+
     }
 }

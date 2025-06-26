@@ -15,5 +15,9 @@ namespace Cars.Services
         public async Task AddAsync(ComponentType type) => await _repo.AddAsync(type);
         public async Task UpdateAsync(ComponentType type) => await _repo.UpdateAsync(type);
         public async Task DeleteAsync(int id) => await _repo.DeleteAsync(id);
+
+        public async Task<List<ComponentType>> SearchAsync(string? query, int page, int pageSize)
+    => await _repo.SearchAsync(query, page, pageSize);
+
     }
 }

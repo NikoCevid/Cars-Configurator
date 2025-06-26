@@ -14,5 +14,11 @@ namespace Cars.Services
         public async Task<CarComponentCompatibility?> GetByIdAsync(int id) => await _repo.GetByIdAsync(id);
         public async Task AddAsync(CarComponentCompatibility compatibility) => await _repo.AddAsync(compatibility);
         public async Task DeleteAsync(int id) => await _repo.DeleteAsync(id);
+
+        public async Task<List<CarComponentCompatibility>> SearchAsync(string? query, int page, int pageSize)
+        {
+            return await _repo.SearchAsync(query, page, pageSize);
+        }
+
     }
 }

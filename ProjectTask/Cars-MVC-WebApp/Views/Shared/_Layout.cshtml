@@ -6,7 +6,6 @@
     <title>@ViewData["Title"] - Cars_MVC</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
- 
 </head>
 <body>
     <header>
@@ -21,10 +20,17 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>                    
-                        <li><a class ="nav-link text-dark" asp-controller="UserConfiguration" asp-action="Choose">Konfigurator</a></li>
-                        <li><a class="nav-link text-dark" asp-controller="UserConfiguration" asp-action="MyConfiguration">Moja konfiguracija</a></li>
+                        </li>
 
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="UserConfiguration" asp-action="Choose">Konfigurator</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="UserConfiguration" asp-action="MyConfiguration">Moja konfiguracija</a>
+                            </li>
+                        }
 
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
@@ -49,14 +55,12 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="CarComponentCompatibility" asp-action="Configure">Konfigurator</a>
                             </li>
-
                         }
                     </ul>
 
                     <div class="d-flex align-items-center">
                         @if (User.Identity.IsAuthenticated)
                         {
-                        
                             <span class="me-3">Dobrodošao, <strong>@User.Identity.Name</strong></span>
                             <form asp-controller="Auth" asp-action="Logout" method="post" class="d-inline">
                                 <button type="submit" class="btn btn-sm btn-outline-danger">Odjava</button>
