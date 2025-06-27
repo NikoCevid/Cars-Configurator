@@ -17,7 +17,12 @@ namespace Dao.Repositories
             await _context.Configurations.Include(c => c.User).ToListAsync();
 
         public async Task<Configuration?> GetByIdAsync(int id) =>
-            await _context.Configurations.FindAsync(id);
+         await _context.Configurations
+             .Include(c => c.ConfigurationCarComponents)
+             .ThenInclude(cc => cc.CarComponent)
+             .Include(c => c.User)
+             .FirstOrDefaultAsync(c => c.Id == id);
+
 
         public async Task AddAsync(Configuration config)
         {
@@ -27,13 +32,22 @@ namespace Dao.Repositories
 
         public async Task DeleteAsync(int id)
         {
-            var config = await _context.Configurations.FindAsync(id);
-            if (config != null)
-            {
-                _context.Configurations.Remove(config);
-                await _context.SaveChangesAsync();
-            }
+            var configuration = await _context.Configurations
+                .Include(c => c.ConfigurationCarComponents)
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            if (configuration == null)
+                throw new Exception("Configuration not found");
+
+            // Ručno briši povezane ConfigurationCarComponent zapise
+            _context.ConfigurationCarComponents.RemoveRange(configuration.ConfigurationCarComponents);
+
+            // Zatim briši samu konfiguraciju
+            _context.Configurations.Remove(configuration);
+
+            await _context.SaveChangesAsync();
         }
+
 
         public async Task<List<Configuration>> SearchAsync(string? query, int page, int pageSize)
         {

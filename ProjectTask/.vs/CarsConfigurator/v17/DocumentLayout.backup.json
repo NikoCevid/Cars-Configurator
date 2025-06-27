@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FEB4B50A-5AD3-4AF3-9ED2-E8BFDCC9D38A}|Dao\\Dao.csproj|c:\\users\\user\\desktop\\rwa projekt\\projecttask\\dao\\models\\carscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FEB4B50A-5AD3-4AF3-9ED2-E8BFDCC9D38A}|Dao\\Dao.csproj|solutionrelative:dao\\models\\carscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DECB364A-67B8-796B-D14D-8FD563BF7BD9}|Cars-WebApi\\Cars-WebApi.csproj|c:\\users\\user\\desktop\\rwa projekt\\projecttask\\cars-webapi\\mapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DECB364A-67B8-796B-D14D-8FD563BF7BD9}|Cars-WebApi\\Cars-WebApi.csproj|solutionrelative:cars-webapi\\mapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FEB4B50A-5AD3-4AF3-9ED2-E8BFDCC9D38A}|Dao\\Dao.csproj|c:\\users\\user\\desktop\\rwa projekt\\projecttask\\dao\\models\\carcomponentcompatibility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FEB4B50A-5AD3-4AF3-9ED2-E8BFDCC9D38A}|Dao\\Dao.csproj|solutionrelative:dao\\models\\carcomponentcompatibility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FEB4B50A-5AD3-4AF3-9ED2-E8BFDCC9D38A}|Dao\\Dao.csproj|c:\\users\\user\\desktop\\rwa projekt\\projecttask\\dao\\services\\service\\carcomponentcompatibilityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEB4B50A-5AD3-4AF3-9ED2-E8BFDCC9D38A}|Dao\\Dao.csproj|solutionrelative:dao\\services\\service\\carcomponentcompatibilityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DECB364A-67B8-796B-D14D-8FD563BF7BD9}|Cars-WebApi\\Cars-WebApi.csproj|c:\\users\\user\\desktop\\rwa projekt\\projecttask\\cars-webapi\\controllers\\componentcompatibilitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DECB364A-67B8-796B-D14D-8FD563BF7BD9}|Cars-WebApi\\Cars-WebApi.csproj|solutionrelative:cars-webapi\\controllers\\componentcompatibilitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEB4B50A-5AD3-4AF3-9ED2-E8BFDCC9D38A}|Dao\\Dao.csproj|c:\\users\\user\\desktop\\rwa projekt\\projecttask\\dao\\repositories\\carcomponentcompatibilityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEB4B50A-5AD3-4AF3-9ED2-E8BFDCC9D38A}|Dao\\Dao.csproj|solutionrelative:dao\\repositories\\carcomponentcompatibilityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEB4B50A-5AD3-4AF3-9ED2-E8BFDCC9D38A}|Dao\\Dao.csproj|c:\\users\\user\\desktop\\rwa projekt\\projecttask\\dao\\repositories\\componenttyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEB4B50A-5AD3-4AF3-9ED2-E8BFDCC9D38A}|Dao\\Dao.csproj|solutionrelative:dao\\repositories\\componenttyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FEB4B50A-5AD3-4AF3-9ED2-E8BFDCC9D38A}|Dao\\Dao.csproj|c:\\users\\user\\desktop\\rwa projekt\\projecttask\\dao\\models\\carcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FEB4B50A-5AD3-4AF3-9ED2-E8BFDCC9D38A}|Dao\\Dao.csproj|solutionrelative:dao\\models\\carcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEB4B50A-5AD3-4AF3-9ED2-E8BFDCC9D38A}|Dao\\Dao.csproj|c:\\users\\user\\desktop\\rwa projekt\\projecttask\\dao\\repositories\\configurationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEB4B50A-5AD3-4AF3-9ED2-E8BFDCC9D38A}|Dao\\Dao.csproj|solutionrelative:dao\\repositories\\configurationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 181,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,40 +46,88 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CarsContext.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Dao\\Models\\CarsContext.cs",
-              "RelativeDocumentMoniker": "Dao\\Models\\CarsContext.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Dao\\Models\\CarsContext.cs",
-              "RelativeToolTip": "Dao\\Models\\CarsContext.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAowFQAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T16:55:59.819Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CarComponentCompatibility.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Dao\\Models\\CarComponentCompatibility.cs",
-              "RelativeDocumentMoniker": "Dao\\Models\\CarComponentCompatibility.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Dao\\Models\\CarComponentCompatibility.cs",
-              "RelativeToolTip": "Dao\\Models\\CarComponentCompatibility.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAwBEAAAAAAAAAAAAAAA==",
+              "Title": "CarComponentCompatibilityService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Dao\\Services\\Service\\CarComponentCompatibilityService.cs",
+              "RelativeDocumentMoniker": "Dao\\Services\\Service\\CarComponentCompatibilityService.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Dao\\Services\\Service\\CarComponentCompatibilityService.cs",
+              "RelativeToolTip": "Dao\\Services\\Service\\CarComponentCompatibilityService.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAYwAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T16:54:10.361Z"
+              "WhenOpened": "2025-06-26T21:59:54.033Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "ComponentCompatibilityController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Cars-WebApi\\Controllers\\ComponentCompatibilityController.cs",
+              "RelativeDocumentMoniker": "Cars-WebApi\\Controllers\\ComponentCompatibilityController.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Cars-WebApi\\Controllers\\ComponentCompatibilityController.cs",
+              "RelativeToolTip": "Cars-WebApi\\Controllers\\ComponentCompatibilityController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAwwEEAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T21:59:36.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Cars-WebApi\\Mapper\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "Cars-WebApi\\Mapper\\MappingProfile.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Cars-WebApi\\Mapper\\MappingProfile.cs",
+              "RelativeToolTip": "Cars-WebApi\\Mapper\\MappingProfile.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAYwDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T21:55:12.745Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CarComponentCompatibilityRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Dao\\Repositories\\CarComponentCompatibilityRepository.cs",
+              "RelativeDocumentMoniker": "Dao\\Repositories\\CarComponentCompatibilityRepository.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Dao\\Repositories\\CarComponentCompatibilityRepository.cs",
+              "RelativeToolTip": "Dao\\Repositories\\CarComponentCompatibilityRepository.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAowEYAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T21:52:03.959Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "CarComponent.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Dao\\Models\\CarComponent.cs",
               "RelativeDocumentMoniker": "Dao\\Models\\CarComponent.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Dao\\Models\\CarComponent.cs",
               "RelativeToolTip": "Dao\\Models\\CarComponent.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAuwCQAAABpAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwCEAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T16:50:14.532Z"
+              "WhenOpened": "2025-06-26T21:50:28.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ComponentTypeRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Dao\\Repositories\\ComponentTypeRepository.cs",
+              "RelativeDocumentMoniker": "Dao\\Repositories\\ComponentTypeRepository.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Dao\\Repositories\\ComponentTypeRepository.cs",
+              "RelativeToolTip": "Dao\\Repositories\\ComponentTypeRepository.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAgwEMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T21:49:59.444Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ConfigurationRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Dao\\Repositories\\ConfigurationRepository.cs",
+              "RelativeDocumentMoniker": "Dao\\Repositories\\ConfigurationRepository.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\RWA PROJEKT\\ProjectTask\\Dao\\Repositories\\ConfigurationRepository.cs",
+              "RelativeToolTip": "Dao\\Repositories\\ConfigurationRepository.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T21:45:56.971Z"
             }
           ]
         },

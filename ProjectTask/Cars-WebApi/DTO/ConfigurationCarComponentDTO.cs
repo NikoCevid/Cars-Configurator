@@ -1,16 +1,12 @@
-﻿//namespace Cars.DTO
-//{
-//    public class ConfigurationCarComponentDTO
-//    {
-//        public int Id { get; set; }
-//        public int CarComponentId { get; set; }
-//        public string CarComponentName { get; set; } = null!;
-//    }
-//}
-
-public class ConfigurationCarComponentDTO
+﻿namespace Cars.DTO
 {
-    public int CarComponentId { get; set; }
-    public string CarComponentName { get; set; } = string.Empty;
-}
+    public class ConfigurationCarComponentDTO
+    {
+        public int Id { get; set; }
+        public int ConfigurationId { get; set; }
+        public int CarComponentId { get; set; }
 
+        public string? CarComponentName { get; set; } 
+
+    }
+}

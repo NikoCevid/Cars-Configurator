@@ -10,6 +10,7 @@ namespace Dao.Models;
 public partial class Configuration
 {
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // ✅ automatsko generiranje ID-a
     public int Id { get; set; }
 
     public int UserId { get; set; }

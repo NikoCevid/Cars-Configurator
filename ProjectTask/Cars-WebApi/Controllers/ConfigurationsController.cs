@@ -35,12 +35,24 @@ namespace Cars.Controllers
             return Ok(_mapper.Map<ConfigurationDTO>(config));
         }
 
+        // POST: api/Configurations
         [HttpPost]
-        public async Task<ActionResult> Create([FromBody] ConfigurationDTO dto)
+        public async Task<ActionResult<ConfigurationDTO>> Post(ConfigurationDTO dto)
         {
-            var entity = _mapper.Map<Configuration>(dto);
-            await _service.AddAsync(entity);
-            return Ok();
+            var config = _mapper.Map<Configuration>(dto);
+
+            config.Id = 0; // ensure EF Core auto-generates it
+            foreach (var comp in config.ConfigurationCarComponents)
+            {
+                comp.Id = 0;
+                comp.ConfigurationId = 0; // EF will set it on save
+            }
+
+            await _service.AddAsync(config);
+
+            var result = _mapper.Map<ConfigurationDTO>(config);
+            return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
+
         }
 
         [HttpDelete("{id}")]

@@ -8,27 +8,44 @@ namespace Cars.Mapping
     {
         public MappingProfile()
         {
-            // Bidirectional DTOs
+            // --- Bidirectional DTOs ---
             CreateMap<CarComponent, CarComponentDTO>().ReverseMap();
             CreateMap<ComponentType, ComponentTypeDTO>().ReverseMap();
             CreateMap<CarComponentCompatibility, ComponentCompatibilityDTO>().ReverseMap();
-            CreateMap<Configuration, ConfigurationDTO>().ReverseMap();
+            CreateMap<User, UserDTO>().ReverseMap();
 
-            // Popravljeno mapiranje - izbjegava mapiranje navigacijskih svojstava
+            // --- Configuration with nested ConfigurationCarComponents ---
+            CreateMap<Configuration, ConfigurationDTO>()
+                .ForMember(dest => dest.ConfigurationCarComponents, opt => opt.MapFrom(src => src.ConfigurationCarComponents))
+                .ReverseMap()
+                .ForMember(dest => dest.ConfigurationCarComponents, opt => opt.MapFrom(src => src.ConfigurationCarComponents));
+
+            // --- ConfigurationCarComponentDTO for READ (includes CarComponent.Name) ---
             CreateMap<ConfigurationCarComponent, ConfigurationCarComponentDTO>()
                 .ForMember(dest => dest.CarComponentName, opt => opt.MapFrom(src => src.CarComponent.Name))
                 .ReverseMap()
-                .ForMember(dest => dest.CarComponent, opt => opt.Ignore()); // <- SPRIJEČI INSERT!
+                .ForMember(dest => dest.CarComponent, opt => opt.Ignore()); // prevent EF from trying to insert nested CarComponent
 
-            CreateMap<User, UserDTO>().ReverseMap();
-
-            // Create-only DTOs
+            // --- Create-only DTOs ---
             CreateMap<CreateCarComponentDTO, CarComponent>();
             CreateMap<CreateComponentTypeDTO, ComponentType>();
             CreateMap<CreateCompabilityDTO, CarComponentCompatibility>();
             CreateMap<CreateUserDTO, User>();
             CreateMap<UserLoginDTO, User>();
             CreateMap<ChangePasswordDTO, User>();
+
+            // --- Compatibility View DTO ---
+            CreateMap<CarComponent, ComponentCompatibilityDTO>()
+                .ForMember(dest => dest.ComponentId, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.ComponentName, opt => opt.MapFrom(src => src.Name))
+                .ForMember(dest => dest.CompatibleWith, opt => opt.MapFrom(src =>
+                    src.CarComponentCompatibilityCarComponentId1Navigations
+                        .Select(c => new CompatibleComponentDTO
+                        {
+                            Id = c.CarComponentId2Navigation.Id,
+                            Name = c.CarComponentId2Navigation.Name
+                        })
+                        .ToList()));
         }
     }
 }
